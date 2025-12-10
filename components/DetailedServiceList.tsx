@@ -13,9 +13,9 @@ import {
 const SERVICE_IMAGES: Record<string, string[]> = {
   'custom-home': [
     '/public/customhome1.jpg', // Modern House Exterior
-    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop', // Construction Site
-    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop', // Architecture Detail
-    'https://images.unsplash.com/photo-1590332766627-994f38d38f2b?q=80&w=600&auto=format&fit=crop'  // Blueprint/Planning
+    '/public/customhome2.jpg', // Construction Site
+    '/public/customhome3.jpg', // Architecture Detail
+    '/public/customhome4.jpg'  // Blueprint/Planning
   ],
   'nca-designs': [
     'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop', // Modern Interior
