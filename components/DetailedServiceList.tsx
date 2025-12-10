@@ -26,7 +26,7 @@ const SERVICE_IMAGES: Record<string, string[]> = {
   'design-your-rooms': [
     '/public/designyourroom1.jpg', // Sofa Detail
     '/public/designyourroom2.jpg', // Kitchen Cabinet
-    'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=600&auto=format&fit=crop', // Modern Kitchen
+    '/public/designyourroom3.jpg', // Modern Kitchen
     'https://images.unsplash.com/photo-1617325247661-675ab4b64ae4?q=80&w=600&auto=format&fit=crop'  // Wardrobe/Closet
   ],
   'ncm-cafe': [
