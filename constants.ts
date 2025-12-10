@@ -14,7 +14,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Specializing in high-end custom home building services with a turnkey process from permitting to key handover.'
     },
     iconName: 'Hammer',
-    imageUrl: 'https://picsum.photos/800/600?random=1',
+    imageUrl: '/customhome.jpg',
     ctaText: {
       vn: 'Tư vấn Xây dựng',
       en: 'Construction Consult'
