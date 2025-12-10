@@ -33,7 +33,7 @@ const ResourcesPage: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen pt-20">
       {/* Simple Text Header */}
-      <div className="bg-white py-20 border-b border-gray-100">
+      <div className="bg-white py-12 border-b border-gray-100">
         <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{t.hero.title[language]}</h1>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -77,7 +77,7 @@ const ResourcesPage: React.FC = () => {
       </div>
 
       {/* Content Grid */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-12">
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredResources.map((item) => (
                 <a 
@@ -123,7 +123,7 @@ const ResourcesPage: React.FC = () => {
          </div>
          
          {/* Load More Button */}
-         <div className="mt-16 text-center">
+         <div className="mt-10 text-center">
             <button className="px-8 py-3 bg-white border border-slate-200 text-slate-600 font-semibold rounded-full hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm">
                {language === 'vn' ? 'Xem thêm bài viết' : 'Load More Articles'}
             </button>

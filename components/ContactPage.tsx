@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -12,9 +13,9 @@ const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-24 pb-12">
+    <div className="bg-slate-50 min-h-screen pt-20 pb-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{t.title[language]}</h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             {t.subtitle[language]}

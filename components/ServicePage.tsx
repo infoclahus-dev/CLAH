@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { CLAH_DETAILED_SERVICES, UI_TEXT } from '../constants';
+import { CLAH_DETAILED_SERVICES, CLAH_ENTITIES, UI_TEXT } from '../constants';
 import { 
   Hammer, PaintBucket, Home, FileText, 
   Ruler, LayoutTemplate, Box, Palette, 
@@ -125,15 +125,17 @@ const ServicePage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col gap-24">
+      <div className="container mx-auto px-6 py-10">
+        <div className="flex flex-col gap-16">
             {CLAH_DETAILED_SERVICES.map((company, index) => {
                 const headerColor = getBrandHeaderColor(index);
+                const entity = CLAH_ENTITIES.find(e => e.id === company.id);
+                const websiteUrl = entity?.websiteUrl || '#';
                 
                 return (
                     <section key={company.id} id={company.id} className="scroll-mt-40">
                         {/* Section Header */}
-                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 pb-6 border-b border-gray-100 gap-4">
+                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-6 pb-6 border-b border-gray-100 gap-4">
                             <div>
                                 <div className={`h-1.5 w-16 rounded-full bg-gradient-to-r ${headerColor} mb-4`} />
                                 <h2 className="text-4xl font-bold text-slate-900 mb-2">{company.name}</h2>
@@ -142,7 +144,7 @@ const ServicePage: React.FC = () => {
                                 </p>
                             </div>
                             <a 
-                                href={company.services[0]?.link || '#'} 
+                                href={websiteUrl} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="group flex items-center gap-2 font-semibold text-slate-700 hover:text-blue-600 transition-colors"

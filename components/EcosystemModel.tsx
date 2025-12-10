@@ -1,15 +1,19 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { UI_TEXT } from '../constants';
+import { UI_TEXT, CLAH_ENTITIES } from '../constants';
 import { Hammer, PenTool, Armchair, Coffee, ArrowRight } from 'lucide-react';
 
 const EcosystemModel: React.FC = () => {
   const { language } = useLanguage();
   const t = UI_TEXT.ecosystemModel;
 
+  const getUrl = (id: string) => {
+    return CLAH_ENTITIES.find(e => e.id === id)?.websiteUrl || '#';
+  };
+
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Background Grid - AnyMind Style */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-blue-50/50 to-transparent" />
@@ -32,7 +36,7 @@ const EcosystemModel: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-8 md:mb-12">
           <span className="inline-block py-1.5 px-4 rounded-full bg-slate-900 text-white font-bold tracking-wider uppercase text-xs mb-4 md:mb-6 shadow-lg shadow-slate-200">
               {t.header[language]}
           </span>
@@ -69,7 +73,12 @@ const EcosystemModel: React.FC = () => {
                </div>
                
                {/* CARD 1: CUSTOM HOME (Blue) */}
-               <div className="group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-blue-200 hover:-translate-y-1 relative overflow-hidden">
+               <a 
+                  href={getUrl('custom-home')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-blue-200 hover:-translate-y-1 relative overflow-hidden cursor-pointer"
+               >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600" />
                   <div className="flex justify-between items-start mb-4">
                      <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
@@ -77,15 +86,20 @@ const EcosystemModel: React.FC = () => {
                      </div>
                      <span className="text-xs font-bold text-slate-300 uppercase">01</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">Custom Home</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Custom Home</h3>
                   <p className="text-sm text-slate-500 mb-3">General Contractor</p>
                   <p className="text-xs text-blue-600 font-semibold tracking-wide uppercase bg-blue-50 inline-block px-2 py-1 rounded">
                     Construction
                   </p>
-               </div>
+               </a>
 
                {/* CARD 2: NCA DESIGNS (Purple) */}
-               <div className="group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-purple-200 hover:-translate-y-1 relative overflow-hidden mt-0 lg:mt-8">
+               <a 
+                  href={getUrl('nca-designs')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-purple-200 hover:-translate-y-1 relative overflow-hidden mt-0 lg:mt-8 cursor-pointer"
+               >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600" />
                   <div className="flex justify-between items-start mb-4">
                      <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
@@ -93,12 +107,12 @@ const EcosystemModel: React.FC = () => {
                      </div>
                      <span className="text-xs font-bold text-slate-300 uppercase">02</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">NCA Designs</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">NCA Designs</h3>
                   <p className="text-sm text-slate-500 mb-3">Architecture & Interior</p>
                   <p className="text-xs text-purple-600 font-semibold tracking-wide uppercase bg-purple-50 inline-block px-2 py-1 rounded">
                      Design
                   </p>
-               </div>
+               </a>
             </div>
 
             {/* Center Hub */}
@@ -129,7 +143,12 @@ const EcosystemModel: React.FC = () => {
                </div>
 
                {/* CARD 3: DESIGN YOUR ROOMS (Emerald) */}
-               <div className="group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-emerald-200 hover:-translate-y-1 relative overflow-hidden">
+               <a 
+                  href={getUrl('design-your-rooms')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-emerald-200 hover:-translate-y-1 relative overflow-hidden cursor-pointer"
+               >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600" />
                   <div className="flex justify-between items-start mb-4">
                      <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
@@ -137,15 +156,20 @@ const EcosystemModel: React.FC = () => {
                      </div>
                      <span className="text-xs font-bold text-slate-300 uppercase">03</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">Design Your Rooms</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Design Your Rooms</h3>
                   <p className="text-sm text-slate-500 mb-3">Bespoke Furniture</p>
                   <p className="text-xs text-emerald-600 font-semibold tracking-wide uppercase bg-emerald-50 inline-block px-2 py-1 rounded">
                      Custom Furniture
                   </p>
-               </div>
+               </a>
 
                {/* CARD 4: NCM CAFE (Orange) */}
-               <div className="group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-orange-200 hover:-translate-y-1 relative overflow-hidden mt-0 lg:mt-8">
+               <a 
+                  href={getUrl('ncm-cafe')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-orange-200 hover:-translate-y-1 relative overflow-hidden mt-0 lg:mt-8 cursor-pointer"
+               >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600" />
                   <div className="flex justify-between items-start mb-4">
                      <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
@@ -153,18 +177,18 @@ const EcosystemModel: React.FC = () => {
                      </div>
                      <span className="text-xs font-bold text-slate-300 uppercase">04</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">NCM Cafe</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">NCM Cafe</h3>
                   <p className="text-sm text-slate-500 mb-3">Real Estate & Startup Hub</p>
                   <p className="text-xs text-orange-600 font-semibold tracking-wide uppercase bg-orange-50 inline-block px-2 py-1 rounded">
                      Community
                   </p>
-               </div>
+               </a>
             </div>
 
         </div>
 
         {/* Bottom Flow Graphic */}
-        <div className="mt-12 md:mt-20 flex justify-center opacity-40">
+        <div className="mt-8 md:mt-12 flex justify-center opacity-40">
            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[10px] md:text-xs font-bold tracking-widest text-slate-400 uppercase">
               <span>Construction</span>
               <ArrowRight size={14} className="md:w-4 md:h-4" />

@@ -340,6 +340,10 @@ export const UI_TEXT = {
     about: { vn: "Về CLAH", en: "About CLAH" },
     contact: { vn: "Liên hệ", en: "Contact" }
   },
+  visionSection: {
+    title: { vn: "MAKE EVERY\nSPACE\nALIVE", en: "MAKE EVERY\nSPACE\nALIVE" },
+    subtitle: { vn: "Kết nối thế giới thực và số.", en: "Connecting physical and digital worlds." }
+  },
   about: {
     pageTitle: { vn: "Câu Chuyện Của CLAH", en: "The CLAH Story" },
     vision: { vn: "Tầm nhìn", en: "Our Vision" },

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+
+import React, { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
 import { 
@@ -37,7 +38,7 @@ const CareersPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-20">
       {/* Hero Section */}
-      <div className="bg-slate-900 text-white pt-24 pb-32 relative overflow-hidden">
+      <div className="bg-slate-900 text-white pt-20 pb-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className={`container mx-auto px-6 text-center relative z-10 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-block py-1 px-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-xs font-bold tracking-widest uppercase mb-6">
@@ -57,7 +58,7 @@ const CareersPage: React.FC = () => {
       </div>
 
       {/* Intro Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className={`container mx-auto px-6 max-w-4xl text-center transition-all duration-1000 delay-300 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-3xl font-bold text-slate-900 mb-6">{t.intro.title[language]}</h2>
             <p className="text-xl text-slate-600 leading-relaxed">
@@ -67,9 +68,9 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-16 bg-slate-50">
           <div className="container mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">{t.benefits.title[language]}</h2>
+              <h2 className="text-3xl font-bold text-center mb-10 text-slate-900">{t.benefits.title[language]}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                   {t.benefits.items.map((item, idx) => (
                       <div key={idx} className="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
@@ -88,9 +89,9 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Jobs Section */}
-      <section id="open-positions" className="py-24 bg-white">
+      <section id="open-positions" className="py-16 bg-white">
           <div className="container mx-auto px-6 max-w-5xl">
-              <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">{t.jobs.title[language]}</h2>
+              <h2 className="text-3xl font-bold text-center mb-10 text-slate-900">{t.jobs.title[language]}</h2>
               <div className="space-y-6">
                   {t.jobs.list.map((job, idx) => (
                       <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden hover:border-orange-300 hover:shadow-md transition-all duration-300">
@@ -168,9 +169,9 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* General Application Form */}
-      <section ref={formRef} className="py-20 bg-slate-50 border-t border-gray-200 scroll-mt-20">
+      <section ref={formRef} className="py-16 bg-slate-50 border-t border-gray-200 scroll-mt-20">
            <div className="container mx-auto px-6 max-w-3xl">
-              <div className="text-center mb-10">
+              <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">{t.form.title[language]}</h2>
                   <p className="text-slate-500">Don't see a position that fits? Send us your resume.</p>
               </div>
@@ -277,9 +278,9 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Our Offices Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-16 bg-white border-t border-gray-100">
          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">{t.offices.title[language]}</h2>
+            <h2 className="text-3xl font-bold text-center mb-10 text-slate-900">{t.offices.title[language]}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                
                {/* Headquarters */}
@@ -336,6 +337,3 @@ const CareersPage: React.FC = () => {
 };
 
 export default CareersPage;
-
-// Helper to make import work in CareersPage which was using useRef
-import { useRef } from 'react';

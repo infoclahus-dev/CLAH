@@ -43,11 +43,11 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Story Section (Our Journey) */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="container mx-auto px-6">
-            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
                 {/* Text Side */}
-                <div className="w-full lg:w-1/2 sticky top-24">
+                <div className="w-full lg:w-1/2 sticky top-20">
                     <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">
                         {t.storyTitle[language]}
                     </span>
@@ -94,16 +94,16 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Culture & Values Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-16 bg-slate-50">
           <div className="container mx-auto px-6">
-              <div className="text-center mb-16">
+              <div className="text-center mb-10">
                   {/* CLAH Culture Label */}
                   <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-6 block">
                       {t.values.cultureTitle[language]}
                   </span>
                   
                   {/* Slogan - Amber/Orange Gradient */}
-                  <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mb-20 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-600 uppercase leading-none drop-shadow-sm filter hover:brightness-110 transition-all cursor-default">
+                  <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mb-12 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-600 uppercase leading-none drop-shadow-sm filter hover:brightness-110 transition-all cursor-default">
                       {t.values.cultureSlogan[language]}
                   </h2>
 
@@ -142,12 +142,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Our Milestones Section */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden">
           <div className="container mx-auto px-6">
-              <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
                   
                   {/* Left Column: Text (Matching Our Journey Layout) */}
-                  <div className="w-full lg:w-1/2 sticky top-24">
+                  <div className="w-full lg:w-1/2 sticky top-20">
                        <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">
                           {language === 'vn' ? 'Lịch sử phát triển' : 'Timeline'}
                        </span>
@@ -211,9 +211,9 @@ const AboutPage: React.FC = () => {
       </section>
 
        {/* Our Offices Section */}
-       <section className="py-24 bg-slate-50 border-t border-gray-100">
+       <section className="py-16 bg-slate-50 border-t border-gray-100">
          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">{tOffices.title[language]}</h2>
+            <h2 className="text-3xl font-bold text-center mb-10 text-slate-900">{tOffices.title[language]}</h2>
             {/* Removed max-w-5xl to let images expand to container width */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                

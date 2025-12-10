@@ -16,7 +16,7 @@ const LocationsPage: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen pt-20">
       {/* Hero Section */}
-      <div className="bg-slate-900 text-white py-24 relative overflow-hidden">
+      <div className="bg-slate-900 text-white py-16 relative overflow-hidden">
         {/* World Map Background Pattern */}
         <div className="absolute inset-0 z-0 opacity-10" 
              style={{ 
@@ -36,11 +36,11 @@ const LocationsPage: React.FC = () => {
       </div>
 
       {/* Locations Grid */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-6 py-12">
         {LOCATIONS_DATA.map((group, index) => (
-          <div key={index} className="mb-20 last:mb-0">
+          <div key={index} className="mb-12 last:mb-0">
             {/* Region Header */}
-            <div className="flex items-center gap-4 mb-10">
+            <div className="flex items-center gap-4 mb-8">
                 <div className="h-px bg-gray-200 flex-1"></div>
                 <h2 className="text-2xl font-bold text-slate-900 uppercase tracking-widest px-4 border border-gray-200 py-2 rounded-full bg-white">
                     {group.region[language]}
@@ -103,9 +103,9 @@ const LocationsPage: React.FC = () => {
       </div>
 
       {/* Office Gallery Section */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900">{t.gallery[language]}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-slate-900">{t.gallery[language]}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
                 {/* Large Featured Image */}
@@ -152,9 +152,9 @@ const LocationsPage: React.FC = () => {
       </section>
 
       {/* Map Access Section */}
-      <section className="bg-slate-50 py-24 border-t border-gray-200">
+      <section className="bg-slate-50 py-16 border-t border-gray-200">
          <div className="container mx-auto px-6 max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900">{t.mapAccess[language]}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-slate-900">{t.mapAccess[language]}</h2>
             
             {/* Map Tabs */}
             <div className="flex justify-center mb-8">

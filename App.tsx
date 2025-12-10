@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -34,7 +35,7 @@ const App: React.FC = () => {
              <EcosystemModel />
 
             {/* Services Grid (The "Gateway") */}
-            <section id="services" className="py-24 container mx-auto px-4">
+            <section id="services" className="py-16 container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {CLAH_ENTITIES.map((entity) => (
                   <ServiceCard key={entity.id} entity={entity} />
@@ -48,7 +49,7 @@ const App: React.FC = () => {
             </section>
 
             {/* Home About Teaser - Simplified version for landing */}
-            <section id="about-teaser" className="py-20 bg-white">
+            <section id="about-teaser" className="py-16 bg-white">
               <div className="container mx-auto px-4 text-center">
                  <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">
                     {t.about.vision[language]}
@@ -67,6 +68,59 @@ const App: React.FC = () => {
                  </button>
               </div>
             </section>
+
+            {/* Vision / Borderless Section */}
+            <section className="py-16 bg-white overflow-hidden border-t border-gray-100">
+              <div className="container mx-auto px-6">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                  {/* Left Column: Typography */}
+                  <div className="w-full lg:w-1/3 text-center lg:text-left">
+                    <h2 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-600 leading-[0.9] tracking-tighter uppercase mb-6 whitespace-pre-line drop-shadow-sm">
+                      {t.visionSection.title[language]}
+                    </h2>
+                    <p className="text-xl text-slate-600 font-medium">
+                      {t.visionSection.subtitle[language]}
+                    </p>
+                  </div>
+                  
+                  {/* Right Column: 4 Vertical Pills */}
+                  <div className="w-full lg:w-2/3 h-[400px] md:h-[500px] grid grid-cols-4 gap-4">
+                     {/* Pill 1 */}
+                     <div className="relative rounded-[100px] overflow-hidden mt-0 h-[85%] bg-orange-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
+                        <img 
+                            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop" 
+                            alt="Construction" 
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        />
+                     </div>
+                     {/* Pill 2 */}
+                     <div className="relative rounded-[100px] overflow-hidden mt-[20%] h-[80%] bg-blue-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
+                        <img 
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" 
+                            alt="Tech" 
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        />
+                     </div>
+                     {/* Pill 3 */}
+                     <div className="relative rounded-[100px] overflow-hidden mt-[5%] h-[95%] bg-emerald-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
+                        <img 
+                            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop" 
+                            alt="Community" 
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        />
+                     </div>
+                     {/* Pill 4 */}
+                     <div className="relative rounded-[100px] overflow-hidden mt-[15%] h-[85%] bg-purple-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
+                         <img 
+                            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop" 
+                            alt="Design" 
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        />
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </>
         )}
 
@@ -78,16 +132,16 @@ const App: React.FC = () => {
         {currentView === 'locations' && <LocationsPage />}
 
         {/* CTA / Contact Section - Always visible */}
-        <section id="contact" className="py-24 bg-slate-900 text-white">
-          <div className="container mx-auto px-4 text-center mb-16">
+        <section id="contact" className="py-16 bg-white text-slate-900">
+          <div className="container mx-auto px-4 text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.contact.title[language]}</h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
+            <p className="text-slate-600 max-w-xl mx-auto">
               {t.contact.subtitle[language]}
             </p>
           </div>
 
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left text-white">
               <div className="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
                 <MapPin size={26} />
               </div>
@@ -97,7 +151,7 @@ const App: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left text-white">
               <div className="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors">
                 <Phone size={26} />
               </div>
@@ -110,7 +164,7 @@ const App: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left text-white">
               <div className="w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20 group-hover:border-purple-500/50 transition-colors">
                 <Mail size={26} />
               </div>
@@ -125,7 +179,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <footer className="bg-slate-950 text-slate-400 py-8 border-t border-slate-900">
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-2xl font-bold text-white tracking-tighter">CLAH</div>
             <div className="flex gap-6">

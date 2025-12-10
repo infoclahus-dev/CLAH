@@ -48,7 +48,7 @@ const DetailedServiceList: React.FC = () => {
   };
 
   return (
-    <div className="bg-white py-24 overflow-hidden">
+    <div className="bg-white py-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {CLAH_DETAILED_SERVICES.map((company, index) => {
           const isEven = index % 2 === 0;
@@ -57,13 +57,13 @@ const DetailedServiceList: React.FC = () => {
           return (
             <div 
               key={company.id} 
-              className={`flex flex-col lg:flex-row items-center gap-16 xl:gap-32 py-20 ${
+              className={`flex flex-col lg:flex-row items-center gap-12 xl:gap-20 py-12 ${
                 !isEven ? 'lg:flex-row-reverse' : ''
               } ${index !== CLAH_DETAILED_SERVICES.length - 1 ? 'border-b border-gray-100' : ''}`}
             >
               {/* Text Content Side */}
               <div className="w-full lg:w-1/2">
-                <div className="mb-12">
+                <div className="mb-8">
                   <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-6 ${
                     index === 0 ? 'bg-blue-100 text-blue-700' :
                     index === 1 ? 'bg-purple-100 text-purple-700' :
@@ -139,7 +139,7 @@ const DetailedServiceList: React.FC = () => {
                   </div>
 
                   {/* Right Column (Images 1 & 3) - Shifted Down */}
-                  <div className="flex flex-col gap-4 md:gap-6 pt-12 md:pt-24">
+                  <div className="flex flex-col gap-4 md:gap-6 pt-8 md:pt-16">
                       {[1, 3].map((imgIdx) => (
                            <div key={imgIdx} className="group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5]">
                                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all z-10" />
