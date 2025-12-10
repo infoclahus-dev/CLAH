@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
+import BlueprintCanvas from './BlueprintCanvas';
 
 const HeroSection: React.FC = () => {
   const { language } = useLanguage();
@@ -9,15 +10,8 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop" 
-          alt="CLAH Ecosystem Background" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-slate-900/90" />
-      </div>
+      {/* Animated Blueprint Background */}
+      <BlueprintCanvas />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
