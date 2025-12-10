@@ -12,16 +12,16 @@ import {
 
 const SERVICE_IMAGES: Record<string, string[]> = {
   'custom-home': [
-    '/public/customhome1.jpg', // Modern House Exterior
-    '/public/customhome2.jpg', // Construction Site
-    '/public/customhome3.jpg', // Architecture Detail
-    '/public/customhome4.jpg'  // Blueprint/Planning
+    '/customhome1.jpg', // Modern House Exterior
+    '/customhome2.jpg', // Construction Site
+    '/customhome3.jpg', // Architecture Detail
+    '/customhome4.jpg'  // Blueprint/Planning
   ],
   'nca-designs': [
-    '/public/ncadesigns1.jpg', // Modern Interior
-    '/public/ncadesigns2.jpg', // Decor Setup
-    '/public/ncadesigns3.jpg', // Living Room
-    '/public/ncadesigns4.jpg'  // Minimal Design
+    '/ncadesigns1.jpg', // Modern Interior
+    '/ncadesigns2.png', // Decor Setup
+    '/ncadesigns3.png', // Living Room
+    '/ncadesigns4.jpg'  // Minimal Design
   ],
   'design-your-rooms': [
     'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop', // Sofa Detail
