@@ -28,8 +28,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ entity }) => {
           alt={entity.name} 
           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
         />
-        <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur p-3 rounded-2xl shadow-lg text-orange-600">
-          <Icon size={24} />
+        <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur p-3 rounded-2xl shadow-lg">
+          {entity.logoUrl ? (
+            <img src={entity.logoUrl} alt={entity.name} className="w-6 h-6 object-contain" />
+          ) : (
+            <div className="text-orange-600"><Icon size={24} /></div>
+          )}
         </div>
       </div>
 
