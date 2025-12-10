@@ -642,8 +642,8 @@ export const UI_TEXT = {
   },
   contact: {
     title: { vn: "Sẵn sàng để bắt đầu?", en: "Ready to get started?" },
-    subtitle: { 
-      vn: "Liên hệ với chúng tôi để được tư vấn miễn phí về xây dựng, thiết kế hoặc đặt không gian sự kiện.", 
+    subtitle: {
+      vn: "Liên hệ với chúng tôi để được tư vấn miễn phí về xây dựng, thiết kế hoặc đặt không gian sự kiện.",
       en: "Contact us for a free consultation on construction, design, or event space booking."
     },
     visit: { vn: "Ghé thăm", en: "Visit Us" },
@@ -651,7 +651,28 @@ export const UI_TEXT = {
     email: { vn: "Gửi Email", en: "Email Us" },
     address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
     emailAddr: "info@clah.us",
-    phoneNo: "+1 650-999-6797"
+    phoneNo: "+1 650-999-6797",
+    form: {
+      title: { vn: "Để lại thông tin liên hệ", en: "Leave Your Information" },
+      subtitle: { vn: "Chúng tôi sẽ liên hệ lại trong vòng 24 giờ", en: "We'll get back to you within 24 hours" },
+      name: { vn: "Họ và tên", en: "Full Name" },
+      email: { vn: "Email", en: "Email" },
+      phone: { vn: "Số điện thoại", en: "Phone Number" },
+      service: { vn: "Dịch vụ quan tâm", en: "Service Interest" },
+      message: { vn: "Lời nhắn", en: "Message" },
+      submit: { vn: "Gửi thông tin", en: "Submit" },
+      submitting: { vn: "Đang gửi...", en: "Submitting..." },
+      success: { vn: "Cảm ơn! Chúng tôi sẽ liên hệ bạn sớm.", en: "Thank you! We'll contact you soon." },
+      error: { vn: "Có lỗi xảy ra. Vui lòng thử lại.", en: "An error occurred. Please try again." },
+      serviceOptions: {
+        none: { vn: "-- Chọn dịch vụ --", en: "-- Select Service --" },
+        customHome: { vn: "Xây dựng nhà ở", en: "Custom Home Building" },
+        design: { vn: "Thiết kế nội thất", en: "Interior Design" },
+        furniture: { vn: "Nội thất Custom", en: "Custom Furniture" },
+        cafe: { vn: "Không gian sự kiện", en: "Event Space" },
+        other: { vn: "Khác", en: "Other" }
+      }
+    }
   },
   chat: {
     welcome: { 

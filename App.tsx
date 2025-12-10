@@ -12,6 +12,7 @@ import ResourcesPage from './components/ResourcesPage';
 import LocationsPage from './components/LocationsPage';
 import EcosystemModel from './components/EcosystemModel';
 import AIChatWidget from './components/AIChatWidget';
+import ContactForm from './components/ContactForm';
 import { CLAH_ENTITIES, UI_TEXT } from './constants';
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
@@ -177,6 +178,9 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Form */}
+        <ContactForm />
 
         {/* Footer */}
         <footer className="bg-slate-950 text-slate-400 py-8 border-t border-slate-900">
