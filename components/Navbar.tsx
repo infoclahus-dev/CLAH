@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Globe, ChevronDown, ChevronRight, Hammer, PenTool, Armchair, Coffee } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -248,6 +250,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                             handleNavClick('careers');
                         } else if (item.link === 'resources') {
                             handleNavClick('resources');
+                        } else if (item.link === 'locations') {
+                            handleNavClick('locations');
                         }
                         setActiveDropdown(null);
                       }}
@@ -393,6 +397,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                             handleNavClick('careers');
                         } else if (item.link === 'resources') {
                             handleNavClick('resources');
+                        } else if (item.link === 'locations') {
+                            handleNavClick('locations');
                         }
                         setMobileMenuOpen(false);
                       }}

@@ -1,6 +1,6 @@
 
 export type Language = 'vn' | 'en';
-export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources';
+export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations';
 
 export interface LocalizedContent {
   vn: string;
@@ -52,4 +52,19 @@ export interface ResourceItem {
   date: string;
   image: string;
   link: string;
+}
+
+export interface OfficeLocation {
+  id: string;
+  name: LocalizedContent;
+  address: string;
+  phone?: string;
+  email?: string;
+  image: string;
+  mapUrl?: string;
+}
+
+export interface RegionGroup {
+  region: LocalizedContent;
+  offices: OfficeLocation[];
 }

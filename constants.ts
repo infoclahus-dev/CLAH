@@ -1,18 +1,5 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { ServiceEntity, ServiceItem, CompanyServiceGroup, ResourceItem } from './types';
+import { ServiceEntity, ServiceItem, CompanyServiceGroup, ResourceItem, RegionGroup } from './types';
 
 export const CLAH_ENTITIES: ServiceEntity[] = [
   {
@@ -240,22 +227,47 @@ export const CLAH_ABOUT_MENU: ServiceItem[] = [
     link: 'about' // Internal navigation
   },
   {
-    id: 'inside-clah',
-    name: { vn: 'Góc nhìn CLAH', en: 'Inside CLAH' },
-    description: { vn: 'Tin tức và câu chuyện từ hệ sinh thái.', en: 'News and stories from our official blog.' },
-    link: 'resources' // Linked to resources
-  },
-  {
     id: 'locations',
     name: { vn: 'Địa điểm', en: 'Locations' },
     description: { vn: 'Văn phòng và các chi nhánh.', en: 'Cities and countries we call home.' },
-    link: '#'
+    link: 'locations' // Linked to locations
   },
   {
     id: 'careers',
     name: { vn: 'Tuyển dụng', en: 'Careers' },
     description: { vn: 'Gia nhập đội ngũ kiến tạo tương lai.', en: 'Join us on our mission to drive San Jose forward.' },
     link: 'careers' // Internal navigation
+  }
+];
+
+export const LOCATIONS_DATA: RegionGroup[] = [
+  {
+    region: { vn: "Châu Mỹ", en: "Americas" },
+    offices: [
+      {
+        id: "headquarters",
+        name: { vn: "Trụ sở chính", en: "Headquarters" },
+        address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
+        phone: "+1 650-999-6797",
+        email: "info@clah.us",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+        mapUrl: "https://maps.google.com"
+      }
+    ]
+  },
+  {
+    region: { vn: "Châu Á", en: "Asia" },
+    offices: [
+      {
+        id: "vietnam-office",
+        name: { vn: "Văn phòng Việt Nam", en: "Vietnam Office" },
+        address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nBình Thạnh, TP. HCM, Vietnam",
+        phone: "+84 28 1234 5678",
+        email: "vn.info@clah.us",
+        image: "https://images.unsplash.com/photo-1555217851-614f536ad3f8?q=80&w=1974&auto=format&fit=crop",
+        mapUrl: "https://maps.google.com"
+      }
+    ]
   }
 ];
 
@@ -601,6 +613,15 @@ export const UI_TEXT = {
           ]
       }
   },
+  locationsPage: {
+    hero: {
+      title: { vn: "Mạng lưới CLAH", en: "Global Presence" },
+      subtitle: { vn: "Kết nối San Jose và Việt Nam thông qua hệ sinh thái CLAH.", en: "Connecting San Jose and Vietnam through the CLAH ecosystem." }
+    },
+    viewMap: { vn: "Xem bản đồ", en: "View on Map" },
+    gallery: { vn: "Không gian làm việc", en: "Office Gallery" },
+    mapAccess: { vn: "Bản đồ chỉ dẫn", en: "Map Access" }
+  },
   resourcesPage: {
     hero: {
       title: { vn: "Tin Tức & Tài Nguyên", en: "News & Resources" },
@@ -624,9 +645,9 @@ export const UI_TEXT = {
     visit: { vn: "Ghé thăm", en: "Visit Us" },
     call: { vn: "Gọi điện", en: "Call Us" },
     email: { vn: "Gửi Email", en: "Email Us" },
-    address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131",
-    emailAddr: "info@ncmcafe.com",
-    phoneNo: "650-999-6797"
+    address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
+    emailAddr: "info@clah.us",
+    phoneNo: "+1 650-999-6797"
   },
   chat: {
     welcome: { 

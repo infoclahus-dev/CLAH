@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -9,6 +8,7 @@ import ContactPage from './components/ContactPage';
 import ServicePage from './components/ServicePage';
 import CareersPage from './components/CareersPage';
 import ResourcesPage from './components/ResourcesPage';
+import LocationsPage from './components/LocationsPage';
 import EcosystemModel from './components/EcosystemModel';
 import AIChatWidget from './components/AIChatWidget';
 import { CLAH_ENTITIES, UI_TEXT } from './constants';
@@ -75,6 +75,7 @@ const App: React.FC = () => {
         {currentView === 'services' && <ServicePage />}
         {currentView === 'careers' && <CareersPage />}
         {currentView === 'resources' && <ResourcesPage />}
+        {currentView === 'locations' && <LocationsPage />}
 
         {/* CTA / Contact Section - Always visible */}
         <section id="contact" className="py-24 bg-slate-900 text-white">
@@ -85,35 +86,39 @@ const App: React.FC = () => {
             </p>
           </div>
 
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div className="p-8 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
-              <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mx-auto md:mx-0 mb-6">
-                <MapPin size={24} />
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
+                <MapPin size={26} />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t.contact.visit[language]}</h3>
-              <p className="text-slate-400">
+              <h3 className="text-xl font-bold mb-3">{t.contact.visit[language]}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
                 {t.contact.address}
               </p>
             </div>
 
-            <div className="p-8 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
-              <div className="w-12 h-12 bg-emerald-600/20 text-emerald-400 rounded-xl flex items-center justify-center mx-auto md:mx-0 mb-6">
-                <Phone size={24} />
+            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors">
+                <Phone size={26} />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t.contact.call[language]}</h3>
-              <p className="text-slate-400">
-                {t.contact.phoneNo}<br/>
-                Mon - Fri, 9am - 6pm
+              <h3 className="text-xl font-bold mb-3">{t.contact.call[language]}</h3>
+              <p className="text-slate-400 text-sm">
+                <a href={`tel:${t.contact.phoneNo}`} className="hover:text-white transition-colors block mb-1">
+                  {t.contact.phoneNo}
+                </a>
+                <span className="text-slate-500 text-xs">Mon - Fri, 9am - 6pm</span>
               </p>
             </div>
 
-            <div className="p-8 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
-              <div className="w-12 h-12 bg-purple-600/20 text-purple-400 rounded-xl flex items-center justify-center mx-auto md:mx-0 mb-6">
-                <Mail size={24} />
+            <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20 group-hover:border-purple-500/50 transition-colors">
+                <Mail size={26} />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t.contact.email[language]}</h3>
-              <p className="text-slate-400">
-                {t.contact.emailAddr}<br/>
+              <h3 className="text-xl font-bold mb-3">{t.contact.email[language]}</h3>
+              <p className="text-slate-400 text-sm">
+                <a href={`mailto:${t.contact.emailAddr}`} className="hover:text-white transition-colors">
+                  {t.contact.emailAddr}
+                </a>
               </p>
             </div>
           </div>
