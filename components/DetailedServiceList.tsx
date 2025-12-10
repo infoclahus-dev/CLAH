@@ -19,7 +19,7 @@ const SERVICE_IMAGES: Record<string, string[]> = {
   ],
   'nca-designs': [
     '/public/ncadesigns1.jpg', // Modern Interior
-    '/public/ncadesigns2.jpg', // Decor Setup
+    '/ncadesigns1.jpg', // Decor Setup
     '/public/ncadesigns3.jpg', // Living Room
     '/public/ncadesigns4.jpg'  // Minimal Design
   ],
