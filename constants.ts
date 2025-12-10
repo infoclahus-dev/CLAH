@@ -60,7 +60,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Bespoke furniture services (Custom Furniture) helping you freely create your own unique space with premium materials.'
     },
     iconName: 'Armchair',
-    imageUrl: 'https://picsum.photos/800/600?random=3',
+    imageUrl: '/designyourroom.jpg',
     ctaText: {
       vn: 'Đặt hàng Custom',
       en: 'Order Custom'
