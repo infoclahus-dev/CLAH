@@ -18,10 +18,10 @@ const SERVICE_IMAGES: Record<string, string[]> = {
     '/public/customhome4.jpg'  // Blueprint/Planning
   ],
   'nca-designs': [
-    'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop', // Modern Interior
-    'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600&auto=format&fit=crop', // Decor Setup
-    'https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=600&auto=format&fit=crop', // Living Room
-    'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop'  // Minimal Design
+    '/public/ncadesigns1.jpg', // Modern Interior
+    '/public/ncadesigns2.jpg', // Decor Setup
+    '/public/ncadesigns3.jpg', // Living Room
+    '/public/ncadesigns4.jpg'  // Minimal Design
   ],
   'design-your-rooms': [
     'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop', // Sofa Detail
