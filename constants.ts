@@ -83,7 +83,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Networking Hub for the Real Estate and Tech Startup community in Silicon Valley.'
     },
     iconName: 'Coffee',
-    imageUrl: 'https://picsum.photos/800/600?random=4',
+    imageUrl: '/ncmcafe.jpeg',
     ctaText: {
       vn: 'Đặt bàn / Sự kiện',
       en: 'Book Table / Events'
