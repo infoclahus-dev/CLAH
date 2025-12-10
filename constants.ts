@@ -37,7 +37,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'NCA Designs provides interior design solutions that optimize living space, combining modern aesthetics with functionality.'
     },
     iconName: 'PenTool',
-    imageUrl: 'https://picsum.photos/800/600?random=2',
+    imageUrl: '/ncadesigns1.jpg',
     ctaText: {
       vn: 'Xem Portfolio',
       en: 'View Portfolio'
