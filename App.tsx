@@ -179,8 +179,8 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Contact Form */}
-        <ContactForm />
+        {/* Contact Form - Only show on home, about, and careers */}
+        {(currentView === 'home' || currentView === 'about' || currentView === 'careers') && <ContactForm />}
 
         {/* Footer */}
         <footer className="bg-slate-950 text-slate-400 py-8 border-t border-slate-900">
