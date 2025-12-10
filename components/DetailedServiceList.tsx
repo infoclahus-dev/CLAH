@@ -24,7 +24,7 @@ const SERVICE_IMAGES: Record<string, string[]> = {
     '/ncadesigns4.jpg'  // Minimal Design
   ],
   'design-your-rooms': [
-    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop', // Sofa Detail
+    '/public/designyourroom1.jpg', // Sofa Detail
     'https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=600&auto=format&fit=crop', // Kitchen Cabinet
     'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=600&auto=format&fit=crop', // Modern Kitchen
     'https://images.unsplash.com/photo-1617325247661-675ab4b64ae4?q=80&w=600&auto=format&fit=crop'  // Wardrobe/Closet
