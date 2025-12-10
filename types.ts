@@ -17,7 +17,6 @@ export interface ServiceEntity {
   ctaText: LocalizedContent;
   features: { vn: string[]; en: string[] };
   websiteUrl?: string;
-  logoUrl?: string;
 }
 
 export interface SubServiceItem {

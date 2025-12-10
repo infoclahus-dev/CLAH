@@ -23,8 +23,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Giấy phép xây dựng', 'Thi công trọn gói', 'Bảo hành dài hạn'],
       en: ['Building Permits', 'Turnkey Construction', 'Long-term Warranty']
     },
-    websiteUrl: 'https://www.customhome.us/',
-    logoUrl: '/customhomelogo.png'
+    websiteUrl: 'https://www.customhome.us/'
   },
   {
     id: 'nca-designs',
