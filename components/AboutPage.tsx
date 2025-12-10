@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
 import { Award, Users, Heart, Lightbulb, Briefcase, Shield, LucideIcon, MapPin } from 'lucide-react';
+import BlueprintCanvas from './BlueprintCanvas';
 
 const AboutPage: React.FC = () => {
   const { language } = useLanguage();
@@ -26,14 +27,7 @@ const AboutPage: React.FC = () => {
     <div className="bg-white min-h-screen pt-20">
       {/* About Hero */}
       <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-             <img 
-                src="https://picsum.photos/1920/1080?random=15" 
-                alt="CLAH Team" 
-                className="w-full h-full object-cover opacity-50"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-        </div>
+        <BlueprintCanvas />
         <div className="relative z-10 text-center container mx-auto px-4">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">{t.pageTitle[language]}</h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">

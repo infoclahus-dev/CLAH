@@ -2,11 +2,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
-import { 
-  MapPin, ArrowRight, CheckCircle2, Briefcase, 
-  DollarSign, Clock, ChevronDown, ChevronUp, 
-  Upload, Globe 
+import {
+  MapPin, ArrowRight, CheckCircle2, Briefcase,
+  DollarSign, Clock, ChevronDown, ChevronUp,
+  Upload, Globe
 } from 'lucide-react';
+import BlueprintCanvas from './BlueprintCanvas';
 
 const CareersPage: React.FC = () => {
   const { language } = useLanguage();
@@ -39,7 +40,7 @@ const CareersPage: React.FC = () => {
     <div className="bg-white min-h-screen pt-20">
       {/* Hero Section */}
       <div className="bg-slate-900 text-white pt-20 pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <BlueprintCanvas />
         <div className={`container mx-auto px-6 text-center relative z-10 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-block py-1 px-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-xs font-bold tracking-widest uppercase mb-6">
              {t.hero.title[language]}
