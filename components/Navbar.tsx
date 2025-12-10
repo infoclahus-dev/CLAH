@@ -89,8 +89,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             onMouseEnter={() => handleMouseEnter('ecosystem')}
             onMouseLeave={handleMouseLeave}
           >
-            <button 
-              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-500 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-600' : 'text-white/90'}`}
+            <button
+              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-300 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
               aria-expanded={activeDropdown === 'ecosystem'}
             >
               {UI_TEXT.nav.ecosystem[language]}
@@ -136,9 +136,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
-            <button 
+            <button
               onClick={() => handleNavClick('services')}
-              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-500 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-600' : 'text-white/90'}`}
+              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-300 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
               aria-expanded={activeDropdown === 'services'}
             >
               {UI_TEXT.nav.services[language]}
@@ -214,9 +214,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           </div>
 
           {/* Resources Link */}
-          <button 
+          <button
              onClick={() => handleNavClick('resources')}
-             className={`font-medium text-sm hover:text-orange-500 transition-colors ${useScrolledStyle ? 'text-slate-600' : 'text-white/90'}`}
+             className={`font-medium text-sm hover:text-orange-300 transition-colors ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
           >
             {UI_TEXT.nav.resources[language]}
           </button>
@@ -227,8 +227,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             onMouseEnter={() => handleMouseEnter('about')}
             onMouseLeave={handleMouseLeave}
           >
-            <button 
-              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-500 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-600' : 'text-white/90'}`}
+            <button
+              className={`flex items-center gap-1 font-medium text-sm hover:text-orange-300 transition-colors py-2 focus:outline-none ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
               aria-expanded={activeDropdown === 'about'}
             >
               {UI_TEXT.nav.about[language]}
@@ -276,7 +276,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             </div>
           </div>
           
-          <button 
+          <button
              onClick={() => {
                 handleNavClick('home');
                 // Allow time for view switch then scroll
@@ -285,17 +285,17 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
              }}
-             className={`font-medium text-sm hover:text-orange-500 transition-colors ${useScrolledStyle ? 'text-slate-600' : 'text-white/90'}`}
+             className={`font-medium text-sm hover:text-orange-300 transition-colors ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
           >
             {UI_TEXT.nav.contact[language]}
           </button>
 
-          <button 
+          <button
             onClick={toggleLanguage}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all cursor-pointer select-none active:scale-95 ${
-            useScrolledStyle 
-              ? 'bg-slate-900 text-white hover:bg-slate-800' 
-              : 'bg-white text-slate-900 hover:bg-gray-100'
+            useScrolledStyle
+              ? 'bg-slate-900 text-white hover:bg-slate-800'
+              : 'bg-orange-600 text-white hover:bg-orange-700 shadow-lg shadow-orange-900/50'
           }`}>
             <Globe size={16} />
             {language === 'vn' ? 'VN' : 'EN'}
@@ -303,7 +303,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden text-2xl focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
