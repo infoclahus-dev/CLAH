@@ -70,9 +70,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <button onClick={() => handleNavClick('home')} className="flex items-center gap-2 group">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl transition-colors ${useScrolledStyle ? 'bg-orange-600 text-white' : 'bg-white text-orange-600'}`}>
-              C
-            </div>
+            <img
+              src="/clah.png"
+              alt="CLAH Logo"
+              className="w-10 h-10 rounded-lg object-contain"
+            />
             <span className={`text-2xl font-bold tracking-tighter transition-colors ${useScrolledStyle ? 'text-slate-800' : 'text-white'}`}>
               CLAH
             </span>
