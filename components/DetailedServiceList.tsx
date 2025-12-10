@@ -27,7 +27,7 @@ const SERVICE_IMAGES: Record<string, string[]> = {
     '/public/designyourroom1.jpg', // Sofa Detail
     '/public/designyourroom2.jpg', // Kitchen Cabinet
     '/public/designyourroom3.jpg', // Modern Kitchen
-    'https://images.unsplash.com/photo-1617325247661-675ab4b64ae4?q=80&w=600&auto=format&fit=crop'  // Wardrobe/Closet
+    '/public/designyourroom4.jpg'  // Wardrobe/Closet
   ],
   'ncm-cafe': [
     'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop', // Cafe Vibe
