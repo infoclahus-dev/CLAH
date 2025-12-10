@@ -30,10 +30,10 @@ const SERVICE_IMAGES: Record<string, string[]> = {
     '/public/designyourroom4.jpg'  // Wardrobe/Closet
   ],
   'ncm-cafe': [
-    'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop', // Cafe Vibe
-    'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=600&auto=format&fit=crop', // Co-working
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop', // Meeting Space
-    'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600&auto=format&fit=crop'  // Event/Networking
+    '/public/ncmcafe1.jpeg', // Cafe Vibe
+    '/public/ncmcafe2.jpeg', // Co-working
+    '/public/ncmcafe3.jpeg', // Meeting Space
+    '/public/ncmcafe4.jpeg'  // Event/Networking
   ]
 };
 
