@@ -466,6 +466,7 @@ export const UI_TEXT = {
         phone: { vn: "Số điện thoại", en: "Phone" },
         location: { vn: "Địa điểm (Thành phố)", en: "Location (City)" },
         locateMe: { vn: "Định vị tôi", en: "Locate me" },
+        currentPosition: { vn: "Vị trí công việc hiện tại", en: "Current Position" },
         resume: { vn: "Hồ sơ / CV", en: "Resume/CV" },
         attach: { vn: "Đính kèm", en: "Attach" },
         dropbox: { vn: "Dropbox", en: "Dropbox" },

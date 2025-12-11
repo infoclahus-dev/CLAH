@@ -220,7 +220,13 @@ const CareersPage: React.FC = () => {
                               <button className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
                           </div>
                       </div>
-                      
+
+                      {/* Current Position */}
+                      <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentPosition[language]}</label>
+                          <input type="text" placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                      </div>
+
                       {/* Position Applied For - Auto-filled if clicked from job list */}
                        <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.position[language]}</label>
