@@ -37,7 +37,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'NCA Designs provides interior design solutions that optimize living space, combining modern aesthetics with functionality.'
     },
     iconName: 'PenTool',
-    imageUrl: '/ncadesigns1.jpg',
+    imageUrl: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
     ctaText: {
       vn: 'Xem Portfolio',
       en: 'View Portfolio'
@@ -83,7 +83,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Networking Hub for the Real Estate and Tech Startup community in Silicon Valley.'
     },
     iconName: 'Coffee',
-    imageUrl: '/ncmcafe.jpeg',
+    imageUrl: 'https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg?auto=compress&cs=tinysrgb&w=800',
     ctaText: {
       vn: 'Đặt bàn / Sự kiện',
       en: 'Book Table / Events'
