@@ -48,7 +48,7 @@ export interface ChatMessage {
 export interface ResourceItem {
   id: string;
   title: LocalizedContent;
-  category: 'News' | 'Case Study' | 'Press Release' | 'Blog';
+  category: string;
   date: string;
   image: string;
   link: string;
