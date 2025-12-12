@@ -188,7 +188,7 @@ const App: React.FC = () => {
             <div className="text-2xl font-bold text-white tracking-tighter">CLAH</div>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+              <a href="https://www.facebook.com/clah.official/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
             </div>
             <div className="text-sm">
