@@ -14,7 +14,7 @@ import EcosystemModel from './components/EcosystemModel';
 import AIChatWidget from './components/AIChatWidget';
 import ContactForm from './components/ContactForm';
 import { CLAH_ENTITIES, UI_TEXT } from './constants';
-import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
 import { ViewState } from './types';
 
@@ -190,6 +190,7 @@ const App: React.FC = () => {
               <a href="https://www.instagram.com/clah_us/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
               <a href="https://www.facebook.com/clah.official/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
             </div>
             <div className="text-sm">
               © 2024 CLAH Ecosystem. All rights reserved.
