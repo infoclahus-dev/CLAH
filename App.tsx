@@ -187,7 +187,7 @@ const App: React.FC = () => {
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-2xl font-bold text-white tracking-tighter">CLAH</div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/clah_us/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
               <a href="https://www.facebook.com/clah.official/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
             </div>
