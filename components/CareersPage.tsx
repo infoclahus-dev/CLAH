@@ -8,6 +8,7 @@ import {
   Globe, Upload
 } from 'lucide-react';
 import BlueprintCanvas from './BlueprintCanvas';
+import { uploadAttachmentToNocoDB, createCareerApplication } from '../lib/nocodb';
 
 const CareersPage: React.FC = () => {
   const { language } = useLanguage();
@@ -86,42 +87,17 @@ const CareersPage: React.FC = () => {
     setValidationErrors([]);
 
     try {
-      let fileData = null;
+      let resumeAttachment = undefined;
       if (selectedFile) {
-        const reader = new FileReader();
-        await new Promise((resolve, reject) => {
-          reader.onload = () => {
-            fileData = {
-              name: selectedFile.name,
-              type: selectedFile.type,
-              data: reader.result
-            };
-            resolve(null);
-          };
-          reader.onerror = reject;
-          reader.readAsDataURL(selectedFile);
-        });
+        resumeAttachment = await uploadAttachmentToNocoDB(selectedFile);
       }
 
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/6724d852-883d-4bf7-815a-83f9e1c101ed', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          positionApplied: formData.positionApplied,
-          fullName: formData.fullName,
-          major: formData.major,
-          portfolioUrl: formData.portfolioUrl,
-          attachment: fileData
-        })
+      await createCareerApplication({
+        fullName: formData.fullName,
+        major: formData.major,
+        portfolioUrl: formData.portfolioUrl || undefined,
+        resumeAttachment,
       });
-
-      if (!response.ok) throw new Error('Failed to submit');
 
       setSubmitStatus('success');
       setFormData({
