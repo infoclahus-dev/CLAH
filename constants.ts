@@ -265,7 +265,7 @@ export const LOCATIONS_DATA: RegionGroup[] = [
         address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nBình Thạnh, TP. HCM, Vietnam",
         phone: "+84 28 1234 5678",
         email: "vn.info@clah.us",
-        image: "https://images.unsplash.com/photo-1555217851-614f536ad3f8?q=80&w=1974&auto=format&fit=crop",
+        image: "https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg",
         mapUrl: "https://maps.google.com"
       }
     ]
