@@ -198,7 +198,7 @@ const App: React.FC = () => {
               <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
             </div>
             <div className="text-sm">
-              © 2024 CLAH Ecosystem. All rights reserved.
+              © 2025 CLAH Ecosystem. All rights reserved.
             </div>
           </div>
         </footer>
