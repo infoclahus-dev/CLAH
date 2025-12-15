@@ -56,7 +56,7 @@ export const IMAGES = {
 
   // NCM Cafe service images
   ncmCafe: {
-    main: '/ncmcafe.jpeg',
+    main: 'https://i.postimg.cc/vmQBfhMT/ncmcafe4.jpg',
     gallery: [
       '/ncmcafe1.jpeg',
       '/ncmcafe2.jpeg',
