@@ -42,7 +42,7 @@ const ContactPage: React.FC = () => {
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{t.call[language]}</h3>
                 <p className="text-slate-600">{t.phoneNo}</p>
-                <p className="text-slate-500 text-sm mt-1">Mon - Fri, 9am - 6pm</p>
+                <p className="text-slate-500 text-sm mt-1">Monday - Sunday 8AM - 7 PM</p>
               </div>
             </div>
 

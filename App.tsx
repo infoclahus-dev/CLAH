@@ -164,7 +164,7 @@ const App: React.FC = () => {
                 <a href={`tel:${t.contact.phoneNo}`} className="hover:text-white transition-colors block mb-1">
                   {t.contact.phoneNo}
                 </a>
-                <span className="text-slate-500 text-xs">Mon - Fri, 9am - 6pm</span>
+                <span className="text-slate-500 text-xs">Monday - Sunday 8AM - 7 PM</span>
               </p>
             </div>
 
