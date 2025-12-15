@@ -59,7 +59,7 @@ export const IMAGES = {
     main: '/ncmcafe.jpeg',
     gallery: [
       '/ncmcafe1.jpeg',
-      'https://i.postimg.cc/vmQBfhMH/ncmcafe2.jpg',
+      '/ncmcafe2.jpeg',
       '/ncmcafe3.jpeg',
       '/ncmcafe4.jpeg',
       '/ncmcafe5.jpg',
