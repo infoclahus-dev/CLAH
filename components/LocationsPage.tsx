@@ -202,12 +202,14 @@ const LocationsPage: React.FC = () => {
                                 {activeMap === 'hq' ? '2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131' : '161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nBình Thạnh, TP. HCM'}
                             </p>
                         </div>
+                        {activeMap === 'hq' && (
                         <div className="flex items-center gap-3">
                             <Phone className="text-blue-500 shrink-0" />
                             <p className="text-slate-700 font-medium">
-                                {activeMap === 'hq' ? '+1 650-999-6797' : '+84 28 1234 5678'}
+                                +1 650-999-6797
                             </p>
                         </div>
+                        )}
                     </div>
                 </div>
 
