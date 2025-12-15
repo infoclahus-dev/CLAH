@@ -29,16 +29,16 @@ export const IMAGES = {
     ]
   },
 
-  // NCA Designs service images (using fallback for missing images)
+  // NCA Designs service images
   ncaDesigns: {
-    main: FALLBACK_IMAGE,
+    main: '/ncadesigns.jpg',
     gallery: [
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
+      '/ncadesigns1.jpg',
+      '/ncadesigns2.png',
+      '/ncadesigns3.png',
+      '/ncadesigns4.jpg',
+      '/ncadesigns6.jpg',
+      '/ncadesigns7.jpg',
     ]
   },
 
@@ -54,15 +54,15 @@ export const IMAGES = {
     ]
   },
 
-  // NCM Cafe service images (using fallback for missing images)
+  // NCM Cafe service images
   ncmCafe: {
-    main: FALLBACK_IMAGE,
+    main: '/ncmcafe.jpeg',
     gallery: [
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
-      FALLBACK_IMAGE,
+      '/ncmcafe1.jpeg',
+      '/ncmcafe2.jpeg',
+      '/ncmcafe3.jpeg',
+      '/ncmcafe4.jpeg',
+      '/ncmcafe5.jpg',
     ]
   }
 } as const;
