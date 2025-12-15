@@ -230,17 +230,13 @@ const CareersPage: React.FC = () => {
                       {/* Position Applied For - Auto-filled if clicked from job list */}
                        <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.position[language]}</label>
-                          <select 
+                          <input
+                            type="text"
+                            placeholder={language === 'vn' ? 'Nhập vị trí ứng tuyển' : 'Enter the position you are applying for'}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all"
                             value={positionApplied}
                             onChange={(e) => setPositionApplied(e.target.value)}
-                          >
-                             <option value="">Select a position...</option>
-                             {t.jobs.list.map((job, idx) => (
-                                 <option key={idx} value={job.title}>{job.title}</option>
-                             ))}
-                             <option value="other">Other / General Application</option>
-                          </select>
+                          />
                       </div>
 
                        <div>
