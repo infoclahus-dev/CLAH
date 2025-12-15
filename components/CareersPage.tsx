@@ -5,7 +5,7 @@ import { UI_TEXT } from '../constants';
 import {
   MapPin, ArrowRight, CheckCircle2, Briefcase,
   DollarSign, Clock, ChevronDown, ChevronUp,
-  Globe
+  Globe, Upload
 } from 'lucide-react';
 import BlueprintCanvas from './BlueprintCanvas';
 
@@ -15,7 +15,9 @@ const CareersPage: React.FC = () => {
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [positionApplied, setPositionApplied] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -49,12 +51,47 @@ const CareersPage: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      setSelectedFile(files[0]);
+    }
+  };
+
+  const handleAttachClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    fileInputRef.current?.click();
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    if (!selectedFile) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
+      let fileData = null;
+      if (selectedFile) {
+        const reader = new FileReader();
+        await new Promise((resolve, reject) => {
+          reader.onload = () => {
+            fileData = {
+              name: selectedFile.name,
+              type: selectedFile.type,
+              data: reader.result
+            };
+            resolve(null);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(selectedFile);
+        });
+      }
+
       const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/55d46df7-4ca0-45cc-9871-61ff6bb20f65', {
         method: 'POST',
         headers: {
@@ -73,7 +110,8 @@ const CareersPage: React.FC = () => {
           currentSalary: formData.currentSalary,
           expectedSalary: formData.expectedSalary,
           linkedin: formData.linkedin,
-          noticePeriod: formData.noticePeriod
+          noticePeriod: formData.noticePeriod,
+          attachment: fileData
         })
       });
 
@@ -96,6 +134,10 @@ const CareersPage: React.FC = () => {
         noticePeriod: ''
       });
       setPositionApplied('');
+      setSelectedFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
 
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
@@ -344,6 +386,38 @@ const CareersPage: React.FC = () => {
                           <input type="text" name="noticePeriod" value={formData.noticePeriod} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                       </div>
 
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Tệp đính kèm' : 'Attachment'}<span className="text-red-500">*</span></label>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          onChange={handleFileChange}
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
+                          className="hidden"
+                          required
+                        />
+                        <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-orange-400 hover:bg-orange-50 transition-all cursor-pointer bg-slate-50 group">
+                          <Upload className="mx-auto text-slate-400 group-hover:text-orange-500 mb-4 transition-colors" size={32} />
+                          <div className="space-y-2">
+                            <button
+                              type="button"
+                              onClick={handleAttachClick}
+                              className="px-6 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-slate-700 hover:border-orange-300 transition-colors shadow-sm"
+                            >
+                              {language === 'vn' ? 'Chọn file' : 'Choose file'}
+                            </button>
+                          </div>
+                          {selectedFile && (
+                            <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+                              <p className="text-sm text-emerald-700 font-medium">
+                                {language === 'vn' ? 'File đã chọn:' : 'Selected file:'} <span className="font-semibold">{selectedFile.name}</span>
+                              </p>
+                            </div>
+                          )}
+                          <p className="text-xs text-slate-400 mt-4">{language === 'vn' ? 'Chấp nhận: PDF, Word, JPG, PNG, GIF' : 'Accepted: PDF, Word, JPG, PNG, GIF'}</p>
+                        </div>
+                      </div>
+
                       {submitStatus === 'success' && (
                         <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-center">
                           {language === 'vn' ? 'Đơn ứng tuyển của bạn đã được gửi thành công!' : 'Your application has been submitted successfully!'}
@@ -352,7 +426,10 @@ const CareersPage: React.FC = () => {
 
                       {submitStatus === 'error' && (
                         <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">
-                          {language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.'}
+                          {!selectedFile
+                            ? (language === 'vn' ? 'Vui lòng tải lên tệp đính kèm.' : 'Please upload an attachment.')
+                            : (language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.')
+                          }
                         </div>
                       )}
 
