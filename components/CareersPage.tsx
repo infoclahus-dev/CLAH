@@ -185,11 +185,35 @@ const CareersPage: React.FC = () => {
     return errors.length === 0;
   };
 
-  const handleNextStep = (e: React.FormEvent) => {
+  const handleNextStep = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep1()) {
-      setCurrentStep(2);
-      setValidationErrors([]);
+      setIsSubmitting(true);
+      try {
+        const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/6724d852-883d-4bf7-815a-83f9e1c101ed', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            positionApplied: formData.positionApplied
+          })
+        });
+
+        if (!response.ok) throw new Error('Failed to submit step 1');
+
+        setCurrentStep(2);
+        setValidationErrors([]);
+      } catch (error) {
+        console.error('Error submitting step 1:', error);
+        setValidationErrors([language === 'vn' ? 'Có lỗi khi gửi dữ liệu. Vui lòng thử lại.' : 'Error submitting data. Please try again.']);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -397,9 +421,10 @@ const CareersPage: React.FC = () => {
 
                           <button
                             type="submit"
-                            className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
+                            disabled={isSubmitting}
+                            className="w-full py-4 bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
                           >
-                              {language === 'vn' ? 'Tiếp tục' : 'Continue'}
+                              {isSubmitting ? (language === 'vn' ? 'Đang xử lý...' : 'Processing...') : (language === 'vn' ? 'Tiếp tục' : 'Continue')}
                           </button>
                         </>
                       )}
