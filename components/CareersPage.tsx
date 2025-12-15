@@ -92,30 +92,41 @@ const CareersPage: React.FC = () => {
         });
       }
 
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/6724d852-883d-4bf7-815a-83f9e1c101ed', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          preferredName: formData.preferredName,
-          email: formData.email,
-          phone: formData.phone,
-          country: formData.country,
-          location: formData.location,
-          currentPosition: formData.currentPosition,
-          positionApplied: formData.positionApplied,
-          currentSalary: formData.currentSalary,
-          expectedSalary: formData.expectedSalary,
-          linkedin: formData.linkedin,
-          noticePeriod: formData.noticePeriod,
-          attachment: fileData
-        })
-      });
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        preferredName: formData.preferredName,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        location: formData.location,
+        currentPosition: formData.currentPosition,
+        positionApplied: formData.positionApplied,
+        currentSalary: formData.currentSalary,
+        expectedSalary: formData.expectedSalary,
+        linkedin: formData.linkedin,
+        noticePeriod: formData.noticePeriod,
+        attachment: fileData
+      };
 
-      if (!response.ok) throw new Error('Failed to submit');
+      const webhookUrls = [
+        'https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/55d46df7-4ca0-45cc-9871-61ff6bb20f65',
+        'https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/3221a411-4c51-4092-a2f5-2454bb8a9a4e'
+      ];
+
+      const responses = await Promise.all(
+        webhookUrls.map(url =>
+          fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+          })
+        )
+      );
+
+      if (!responses.every(response => response.ok)) throw new Error('Failed to submit');
 
       setSubmitStatus('success');
       setFormData({
