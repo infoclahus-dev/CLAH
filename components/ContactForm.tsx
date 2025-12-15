@@ -13,7 +13,6 @@ const ContactForm: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    service_interest: '',
     message: ''
   });
 
@@ -42,7 +41,6 @@ const ContactForm: React.FC = () => {
         name: '',
         email: '',
         phone: '',
-        service_interest: '',
         message: ''
       });
 
@@ -102,41 +100,19 @@ const ContactForm: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">
-                {t.phone[language]}
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                placeholder="+1 (650) 123-4567"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="service_interest" className="block text-sm font-medium text-slate-300 mb-2">
-                {t.service[language]}
-              </label>
-              <select
-                id="service_interest"
-                name="service_interest"
-                value={formData.service_interest}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-              >
-                <option value="" className="bg-slate-800">{t.serviceOptions.none[language]}</option>
-                <option value="custom-home" className="bg-slate-800">{t.serviceOptions.customHome[language]}</option>
-                <option value="design" className="bg-slate-800">{t.serviceOptions.design[language]}</option>
-                <option value="furniture" className="bg-slate-800">{t.serviceOptions.furniture[language]}</option>
-                <option value="cafe" className="bg-slate-800">{t.serviceOptions.cafe[language]}</option>
-                <option value="other" className="bg-slate-800">{t.serviceOptions.other[language]}</option>
-              </select>
-            </div>
+          <div className="mb-6">
+            <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">
+              {t.phone[language]}
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+              placeholder="+1 (650) 123-4567"
+            />
           </div>
 
           <div className="mb-6">
