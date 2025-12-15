@@ -92,7 +92,7 @@ const CareersPage: React.FC = () => {
         });
       }
 
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/55d46df7-4ca0-45cc-9871-61ff6bb20f65', {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/6724d852-883d-4bf7-815a-83f9e1c101ed', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
