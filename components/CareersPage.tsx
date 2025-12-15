@@ -20,6 +20,8 @@ const CareersPage: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [currentStep, setCurrentStep] = useState<1 | 2>(1);
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -135,6 +137,7 @@ const CareersPage: React.FC = () => {
       });
       setPositionApplied('');
       setSelectedFile(null);
+      setCurrentStep(1);
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
       }
@@ -160,6 +163,39 @@ const CareersPage: React.FC = () => {
     e.stopPropagation();
     setPositionApplied(jobTitle);
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const validateStep1 = (): boolean => {
+    const errors: string[] = [];
+    if (!formData.firstName.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập tên.' : 'Please enter first name.');
+    }
+    if (!formData.lastName.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập họ.' : 'Please enter last name.');
+    }
+    if (!formData.phone.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập số điện thoại.' : 'Please enter phone number.');
+    }
+    if (!formData.email.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập email.' : 'Please enter email.');
+    }
+    if (!positionApplied.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập vị trí ứng tuyển.' : 'Please enter position applying for.');
+    }
+    setValidationErrors(errors);
+    return errors.length === 0;
+  };
+
+  const handleNextStep = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateStep1()) {
+      setCurrentStep(2);
+    }
+  };
+
+  const handlePreviousStep = () => {
+    setCurrentStep(1);
+    setValidationErrors([]);
   };
 
   return (
@@ -301,145 +337,188 @@ const CareersPage: React.FC = () => {
               <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">{t.form.title[language]}</h2>
                   <p className="text-slate-500">Don't see a position that fits? Send us your resume.</p>
+                  <div className="flex justify-center gap-2 mt-6">
+                    <div className={`w-3 h-3 rounded-full transition-colors ${currentStep === 1 ? 'bg-orange-600' : 'bg-gray-300'}`}></div>
+                    <div className={`w-3 h-3 rounded-full transition-colors ${currentStep === 2 ? 'bg-orange-600' : 'bg-gray-300'}`}></div>
+                  </div>
               </div>
-              
+
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                  <form className="space-y-6" onSubmit={handleSubmit}>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <form className="space-y-6" onSubmit={currentStep === 1 ? handleNextStep : handleSubmit}>
+                      {currentStep === 1 && (
+                        <>
+                          <h3 className="text-xl font-bold text-slate-900 mb-6">{language === 'vn' ? 'Thông tin cơ bản' : 'Basic Information'}</h3>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.firstName[language]}<span className="text-red-500">*</span></label>
+                                  <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.lastName[language]}<span className="text-red-500">*</span></label>
+                                  <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.email[language]}<span className="text-red-500">*</span></label>
+                                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.phone[language]}<span className="text-red-500">*</span></label>
+                                  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                          </div>
+
                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.firstName[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.position[language]}<span className="text-red-500">*</span></label>
+                              <input
+                                type="text"
+                                placeholder={language === 'vn' ? 'Nhập vị trí ứng tuyển' : 'Enter the position you are applying for'}
+                                className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all"
+                                value={positionApplied}
+                                onChange={(e) => setPositionApplied(e.target.value)}
+                              />
                           </div>
-                          <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.lastName[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-                      </div>
 
-                       <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.preferredName[language]}</label>
-                          <input type="text" name="preferredName" value={formData.preferredName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.email[language]}<span className="text-red-500">*</span></label>
-                              <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-                          <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.phone[language]}<span className="text-red-500">*</span></label>
-                              <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.country[language]}<span className="text-red-500">*</span></label>
-                              <select name="country" value={formData.country} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all">
-                                  <option>Vietnam (+84)</option>
-                                  <option>United States (+1)</option>
-                              </select>
-                          </div>
-                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.location[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" name="location" value={formData.location} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                              <button type="button" className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
-                          </div>
-                      </div>
-
-                      {/* Current Position */}
-                      <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentPosition[language]}</label>
-                          <input type="text" name="currentPosition" value={formData.currentPosition} onChange={handleInputChange} placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                      </div>
-
-                      {/* Position Applied For - Auto-filled if clicked from job list */}
-                       <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.position[language]}</label>
-                          <input
-                            type="text"
-                            placeholder={language === 'vn' ? 'Nhập vị trí ứng tuyển' : 'Enter the position you are applying for'}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all"
-                            value={positionApplied}
-                            onChange={(e) => setPositionApplied(e.target.value)}
-                          />
-                      </div>
-
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentSalary[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" name="currentSalary" value={formData.currentSalary} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-                          <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.expectedSalary[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-                      </div>
-
-                       <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.linkedin[language]}</label>
-                          <input type="text" name="linkedin" value={formData.linkedin} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                      </div>
-
-                       <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.noticePeriod[language]}</label>
-                          <input type="text" name="noticePeriod" value={formData.noticePeriod} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Tệp đính kèm' : 'Attachment'}<span className="text-red-500">*</span></label>
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          onChange={handleFileChange}
-                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
-                          className="hidden"
-                          required
-                        />
-                        <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-orange-400 hover:bg-orange-50 transition-all cursor-pointer bg-slate-50 group">
-                          <Upload className="mx-auto text-slate-400 group-hover:text-orange-500 mb-4 transition-colors" size={32} />
-                          <div className="space-y-2">
-                            <button
-                              type="button"
-                              onClick={handleAttachClick}
-                              className="px-6 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-slate-700 hover:border-orange-300 transition-colors shadow-sm"
-                            >
-                              {language === 'vn' ? 'Chọn file' : 'Choose file'}
-                            </button>
-                          </div>
-                          {selectedFile && (
-                            <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
-                              <p className="text-sm text-emerald-700 font-medium">
-                                {language === 'vn' ? 'File đã chọn:' : 'Selected file:'} <span className="font-semibold">{selectedFile.name}</span>
-                              </p>
+                          {validationErrors.length > 0 && (
+                            <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                              <ul className="space-y-1">
+                                {validationErrors.map((error, idx) => (
+                                  <li key={idx} className="text-red-700 text-sm flex items-start gap-2">
+                                    <span className="mt-1">•</span>
+                                    <span>{error}</span>
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
                           )}
-                          <p className="text-xs text-slate-400 mt-4">{language === 'vn' ? 'Chấp nhận: PDF, Word, JPG, PNG, GIF' : 'Accepted: PDF, Word, JPG, PNG, GIF'}</p>
-                        </div>
-                      </div>
 
-                      {submitStatus === 'success' && (
-                        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-center">
-                          {language === 'vn' ? 'Đơn ứng tuyển của bạn đã được gửi thành công!' : 'Your application has been submitted successfully!'}
-                        </div>
+                          <button
+                            type="submit"
+                            className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
+                          >
+                              {language === 'vn' ? 'Tiếp tục' : 'Continue'}
+                          </button>
+                        </>
                       )}
 
-                      {submitStatus === 'error' && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">
-                          {!selectedFile
-                            ? (language === 'vn' ? 'Vui lòng tải lên tệp đính kèm.' : 'Please upload an attachment.')
-                            : (language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.')
-                          }
-                        </div>
-                      )}
+                      {currentStep === 2 && (
+                        <>
+                          <h3 className="text-xl font-bold text-slate-900 mb-6">{language === 'vn' ? 'Thông tin bổ sung' : 'Additional Information'}</h3>
 
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full py-4 bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
-                      >
-                          {isSubmitting ? (language === 'vn' ? 'Đang gửi...' : 'Submitting...') : t.form.submit[language]}
-                      </button>
+                          <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.preferredName[language]}</label>
+                              <input type="text" name="preferredName" value={formData.preferredName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                               <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.country[language]}</label>
+                                  <select name="country" value={formData.country} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all">
+                                      <option>Vietnam (+84)</option>
+                                      <option>United States (+1)</option>
+                                  </select>
+                              </div>
+                               <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.location[language]}</label>
+                                  <input type="text" name="location" value={formData.location} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                                  <button type="button" className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
+                              </div>
+                          </div>
+
+                          <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentPosition[language]}</label>
+                              <input type="text" name="currentPosition" value={formData.currentPosition} onChange={handleInputChange} placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          </div>
+
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentSalary[language]}</label>
+                                  <input type="text" name="currentSalary" value={formData.currentSalary} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                              <div>
+                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.expectedSalary[language]}</label>
+                                  <input type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              </div>
+                          </div>
+
+                           <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.linkedin[language]}</label>
+                              <input type="text" name="linkedin" value={formData.linkedin} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          </div>
+
+                           <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.noticePeriod[language]}</label>
+                              <input type="text" name="noticePeriod" value={formData.noticePeriod} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          </div>
+
+                          <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Tệp đính kèm' : 'Attachment'}<span className="text-red-500">*</span></label>
+                            <input
+                              ref={fileInputRef}
+                              type="file"
+                              onChange={handleFileChange}
+                              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
+                              className="hidden"
+                              required
+                            />
+                            <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-orange-400 hover:bg-orange-50 transition-all cursor-pointer bg-slate-50 group">
+                              <Upload className="mx-auto text-slate-400 group-hover:text-orange-500 mb-4 transition-colors" size={32} />
+                              <div className="space-y-2">
+                                <button
+                                  type="button"
+                                  onClick={handleAttachClick}
+                                  className="px-6 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-slate-700 hover:border-orange-300 transition-colors shadow-sm"
+                                >
+                                  {language === 'vn' ? 'Chọn file' : 'Choose file'}
+                                </button>
+                              </div>
+                              {selectedFile && (
+                                <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+                                  <p className="text-sm text-emerald-700 font-medium">
+                                    {language === 'vn' ? 'File đã chọn:' : 'Selected file:'} <span className="font-semibold">{selectedFile.name}</span>
+                                  </p>
+                                </div>
+                              )}
+                              <p className="text-xs text-slate-400 mt-4">{language === 'vn' ? 'Chấp nhận: PDF, Word, JPG, PNG, GIF' : 'Accepted: PDF, Word, JPG, PNG, GIF'}</p>
+                            </div>
+                          </div>
+
+                          {submitStatus === 'success' && (
+                            <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-center">
+                              {language === 'vn' ? 'Đơn ứng tuyển của bạn đã được gửi thành công!' : 'Your application has been submitted successfully!'}
+                            </div>
+                          )}
+
+                          {submitStatus === 'error' && (
+                            <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">
+                              {!selectedFile
+                                ? (language === 'vn' ? 'Vui lòng tải lên tệp đính kèm.' : 'Please upload an attachment.')
+                                : (language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.')
+                              }
+                            </div>
+                          )}
+
+                          <div className="flex gap-4">
+                            <button
+                              type="button"
+                              onClick={handlePreviousStep}
+                              className="w-1/2 py-4 bg-gray-200 hover:bg-gray-300 text-slate-900 font-bold rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95"
+                            >
+                              {language === 'vn' ? 'Quay lại' : 'Back'}
+                            </button>
+                            <button
+                              type="submit"
+                              disabled={isSubmitting}
+                              className="w-1/2 py-4 bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
+                            >
+                              {isSubmitting ? (language === 'vn' ? 'Đang gửi...' : 'Submitting...') : t.form.submit[language]}
+                            </button>
+                          </div>
+                        </>
+                      )}
                   </form>
               </div>
            </div>
