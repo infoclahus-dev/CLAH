@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Globe, ChevronDown, ChevronRight, Hammer, PenTool, Armchair, Coffee, Lock } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, ChevronRight, Hammer, PenTool, Armchair, Coffee } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT, CLAH_ENTITIES, CLAH_DETAILED_SERVICES, CLAH_ABOUT_MENU } from '../constants';
 import { ViewState } from '../types';
@@ -291,14 +291,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           </button>
 
           <button
-             onClick={() => handleNavClick('admin')}
-             className={`flex items-center gap-1.5 font-medium text-sm hover:text-orange-300 transition-colors ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`}
-          >
-            <Lock size={14} />
-            {UI_TEXT.nav.admin[language]}
-          </button>
-
-          <button
             onClick={toggleLanguage}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all cursor-pointer select-none active:scale-95 ${
             useScrolledStyle
@@ -431,14 +423,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               className="block w-full text-left text-slate-800 font-medium py-3 px-2 border-b border-gray-50"
             >
               {UI_TEXT.nav.contact[language]}
-            </button>
-
-            <button
-               onClick={() => handleNavClick('admin')}
-              className="block w-full text-left text-slate-800 font-medium py-3 px-2 border-b border-gray-50 flex items-center gap-2"
-            >
-              <Lock size={16} className="text-orange-600" />
-              {UI_TEXT.nav.admin[language]}
             </button>
 
              <button

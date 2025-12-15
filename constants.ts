@@ -339,8 +339,7 @@ export const UI_TEXT = {
     services: { vn: "Dịch vụ", en: "Services" },
     resources: { vn: "Tài nguyên", en: "Resources" },
     about: { vn: "Về CLAH", en: "About CLAH" },
-    contact: { vn: "Liên hệ", en: "Contact" },
-    admin: { vn: "Quản trị", en: "Admin" }
+    contact: { vn: "Liên hệ", en: "Contact" }
   },
   visionSection: {
     title: { vn: "MAKE EVERY\nSPACE\nALIVE", en: "MAKE EVERY\nSPACE\nALIVE" },
