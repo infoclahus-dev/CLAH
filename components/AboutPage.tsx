@@ -202,9 +202,9 @@ const AboutPage: React.FC = () => {
                {/* Headquarters */}
                <div className="group relative overflow-hidden rounded-3xl shadow-lg h-[400px]">
                   <div className="absolute inset-0 z-0">
-                     <img 
-                       src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-                       alt="San Jose HQ" 
+                     <img
+                       src="https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg"
+                       alt="San Jose HQ"
                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
