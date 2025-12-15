@@ -55,7 +55,7 @@ const CareersPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/d08d1361-de00-4a46-9dc6-0f7d14a110c2', {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/55d46df7-4ca0-45cc-9871-61ff6bb20f65', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
