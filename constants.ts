@@ -262,7 +262,7 @@ export const LOCATIONS_DATA: RegionGroup[] = [
       {
         id: "vietnam-office",
         name: { vn: "Văn phòng Việt Nam", en: "Vietnam Office" },
-        address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nTP. HCM",
+        address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây, TP Hồ Chí Minh, Vietnam.",
         email: "vn.info@clah.us",
         image: "https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg",
         mapUrl: "https://maps.google.com"
@@ -453,7 +453,7 @@ export const UI_TEXT = {
         },
         vn: {
              name: { vn: "Văn phòng Việt Nam", en: "Vietnam Office" },
-             address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nTP. HCM"
+             address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây, TP Hồ Chí Minh, Vietnam."
         }
       },
       form: {
