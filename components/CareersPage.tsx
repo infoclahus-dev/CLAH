@@ -26,17 +26,12 @@ const CareersPage: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    preferredName: '',
     email: '',
     phone: '',
-    country: 'Vietnam (+84)',
-    location: '',
-    currentPosition: '',
     positionApplied: '',
-    currentSalary: '',
-    expectedSalary: '',
-    linkedin: '',
-    noticePeriod: ''
+    fullName: '',
+    major: '',
+    portfolioUrl: ''
   });
 
   useEffect(() => {
@@ -70,11 +65,25 @@ const CareersPage: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const errors: string[] = [];
+    if (!formData.fullName.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập họ và tên.' : 'Please enter full name.');
+    }
+    if (!formData.major.trim()) {
+      errors.push(language === 'vn' ? 'Vui lòng nhập chuyên ngành.' : 'Please enter major.');
+    }
     if (!selectedFile) {
+      errors.push(language === 'vn' ? 'Vui lòng tải lên CV/Đơn xin việc.' : 'Please upload a resume.');
+    }
+
+    if (errors.length > 0) {
+      setValidationErrors(errors);
       setSubmitStatus('error');
       setIsSubmitting(false);
       return;
     }
+
+    setValidationErrors([]);
 
     try {
       let fileData = null;
@@ -102,17 +111,12 @@ const CareersPage: React.FC = () => {
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
-          preferredName: formData.preferredName,
           email: formData.email,
           phone: formData.phone,
-          country: formData.country,
-          location: formData.location,
-          currentPosition: formData.currentPosition,
           positionApplied: formData.positionApplied,
-          currentSalary: formData.currentSalary,
-          expectedSalary: formData.expectedSalary,
-          linkedin: formData.linkedin,
-          noticePeriod: formData.noticePeriod,
+          fullName: formData.fullName,
+          major: formData.major,
+          portfolioUrl: formData.portfolioUrl,
           attachment: fileData
         })
       });
@@ -123,17 +127,12 @@ const CareersPage: React.FC = () => {
       setFormData({
         firstName: '',
         lastName: '',
-        preferredName: '',
         email: '',
         phone: '',
-        country: 'Vietnam (+84)',
-        location: '',
-        currentPosition: '',
         positionApplied: '',
-        currentSalary: '',
-        expectedSalary: '',
-        linkedin: '',
-        noticePeriod: ''
+        fullName: '',
+        major: '',
+        portfolioUrl: ''
       });
       setPositionApplied('');
       setSelectedFile(null);
@@ -190,6 +189,7 @@ const CareersPage: React.FC = () => {
     e.preventDefault();
     if (validateStep1()) {
       setCurrentStep(2);
+      setValidationErrors([]);
     }
   };
 
@@ -409,53 +409,17 @@ const CareersPage: React.FC = () => {
                           <h3 className="text-xl font-bold text-slate-900 mb-6">{language === 'vn' ? 'Thông tin bổ sung' : 'Additional Information'}</h3>
 
                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.preferredName[language]}</label>
-                              <input type="text" name="preferredName" value={formData.preferredName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                               <div>
-                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.country[language]}</label>
-                                  <select name="country" value={formData.country} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all">
-                                      <option>Vietnam (+84)</option>
-                                      <option>United States (+1)</option>
-                                  </select>
-                              </div>
-                               <div>
-                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.location[language]}</label>
-                                  <input type="text" name="location" value={formData.location} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                                  <button type="button" className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
-                              </div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Họ và Tên' : 'Full Name'}<span className="text-red-500">*</span></label>
+                              <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
 
                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentPosition[language]}</label>
-                              <input type="text" name="currentPosition" value={formData.currentPosition} onChange={handleInputChange} placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-
-                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                              <div>
-                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentSalary[language]}</label>
-                                  <input type="text" name="currentSalary" value={formData.currentSalary} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                              </div>
-                              <div>
-                                  <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.expectedSalary[language]}</label>
-                                  <input type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                              </div>
-                          </div>
-
-                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.linkedin[language]}</label>
-                              <input type="text" name="linkedin" value={formData.linkedin} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                          </div>
-
-                           <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.noticePeriod[language]}</label>
-                              <input type="text" name="noticePeriod" value={formData.noticePeriod} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Chuyên ngành' : 'Major'}<span className="text-red-500">*</span></label>
+                              <input type="text" name="major" value={formData.major} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
 
                           <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'Tệp đính kèm' : 'Attachment'}<span className="text-red-500">*</span></label>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'CV/Đơn xin việc' : 'Resume'}<span className="text-red-500">*</span></label>
                             <input
                               ref={fileInputRef}
                               type="file"
@@ -486,18 +450,33 @@ const CareersPage: React.FC = () => {
                             </div>
                           </div>
 
+                          <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{language === 'vn' ? 'URL Portfolio(s)' : 'Portfolio URL(s)'}</label>
+                              <input type="text" name="portfolioUrl" value={formData.portfolioUrl} onChange={handleInputChange} placeholder={language === 'vn' ? 'https://...' : 'https://...'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          </div>
+
                           {submitStatus === 'success' && (
                             <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-center">
                               {language === 'vn' ? 'Đơn ứng tuyển của bạn đã được gửi thành công!' : 'Your application has been submitted successfully!'}
                             </div>
                           )}
 
-                          {submitStatus === 'error' && (
+                          {submitStatus === 'error' && validationErrors.length > 0 && (
+                            <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                              <ul className="space-y-1">
+                                {validationErrors.map((error, idx) => (
+                                  <li key={idx} className="text-red-700 text-sm flex items-start gap-2">
+                                    <span className="mt-1">•</span>
+                                    <span>{error}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {submitStatus === 'error' && validationErrors.length === 0 && (
                             <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">
-                              {!selectedFile
-                                ? (language === 'vn' ? 'Vui lòng tải lên tệp đính kèm.' : 'Please upload an attachment.')
-                                : (language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.')
-                              }
+                              {language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.'}
                             </div>
                           )}
 
