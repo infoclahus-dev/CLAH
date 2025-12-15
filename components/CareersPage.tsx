@@ -16,11 +16,95 @@ const CareersPage: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const [positionApplied, setPositionApplied] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    preferredName: '',
+    email: '',
+    phone: '',
+    country: 'Vietnam (+84)',
+    location: '',
+    currentPosition: '',
+    positionApplied: '',
+    currentSalary: '',
+    expectedSalary: '',
+    linkedin: '',
+    noticePeriod: ''
+  });
 
   useEffect(() => {
     setMounted(true);
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, positionApplied }));
+  }, [positionApplied]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/d08d1361-de00-4a46-9dc6-0f7d14a110c2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          preferredName: formData.preferredName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          location: formData.location,
+          currentPosition: formData.currentPosition,
+          positionApplied: formData.positionApplied,
+          currentSalary: formData.currentSalary,
+          expectedSalary: formData.expectedSalary,
+          linkedin: formData.linkedin,
+          noticePeriod: formData.noticePeriod
+        })
+      });
+
+      if (!response.ok) throw new Error('Failed to submit');
+
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        preferredName: '',
+        email: '',
+        phone: '',
+        country: 'Vietnam (+84)',
+        location: '',
+        currentPosition: '',
+        positionApplied: '',
+        currentSalary: '',
+        expectedSalary: '',
+        linkedin: '',
+        noticePeriod: ''
+      });
+      setPositionApplied('');
+
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const toggleJob = (index: number) => {
     if (expandedJob === index) {
@@ -178,53 +262,53 @@ const CareersPage: React.FC = () => {
               </div>
               
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.firstName[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.lastName[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                       </div>
 
                        <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.preferredName[language]}</label>
-                          <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          <input type="text" name="preferredName" value={formData.preferredName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                       </div>
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.email[language]}<span className="text-red-500">*</span></label>
-                              <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.phone[language]}<span className="text-red-500">*</span></label>
-                              <input type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                            <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.country[language]}<span className="text-red-500">*</span></label>
-                              <select className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all">
+                              <select name="country" value={formData.country} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all">
                                   <option>Vietnam (+84)</option>
                                   <option>United States (+1)</option>
                               </select>
                           </div>
                            <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.location[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
-                              <button className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
+                              <input type="text" name="location" value={formData.location} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <button type="button" className="text-xs text-blue-600 font-medium mt-1 hover:underline">{t.form.locateMe[language]}</button>
                           </div>
                       </div>
 
                       {/* Current Position */}
                       <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentPosition[language]}</label>
-                          <input type="text" placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          <input type="text" name="currentPosition" value={formData.currentPosition} onChange={handleInputChange} placeholder={language === 'vn' ? 'Ví dụ: Senior Software Engineer' : 'e.g., Senior Software Engineer'} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                       </div>
 
                       {/* Position Applied For - Auto-filled if clicked from job list */}
@@ -254,26 +338,42 @@ const CareersPage: React.FC = () => {
                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.currentSalary[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="text" name="currentSalary" value={formData.currentSalary} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                           <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.expectedSalary[language]}<span className="text-red-500">*</span></label>
-                              <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                              <input type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                           </div>
                       </div>
 
                        <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.linkedin[language]}</label>
-                          <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          <input type="text" name="linkedin" value={formData.linkedin} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                       </div>
 
                        <div>
                           <label className="block text-sm font-medium text-slate-700 mb-2">{t.form.noticePeriod[language]}</label>
-                          <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
+                          <input type="text" name="noticePeriod" value={formData.noticePeriod} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-900 focus:ring-2 focus:ring-orange-100 focus:border-orange-500 outline-none transition-all" />
                       </div>
 
-                      <button className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0">
-                          {t.form.submit[language]}
+                      {submitStatus === 'success' && (
+                        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-center">
+                          {language === 'vn' ? 'Đơn ứng tuyển của bạn đã được gửi thành công!' : 'Your application has been submitted successfully!'}
+                        </div>
+                      )}
+
+                      {submitStatus === 'error' && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">
+                          {language === 'vn' ? 'Có lỗi khi gửi đơn. Vui lòng thử lại.' : 'Error submitting application. Please try again.'}
+                        </div>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 active:translate-y-0"
+                      >
+                          {isSubmitting ? (language === 'vn' ? 'Đang gửi...' : 'Submitting...') : t.form.submit[language]}
                       </button>
                   </form>
               </div>
