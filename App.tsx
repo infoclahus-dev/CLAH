@@ -194,7 +194,7 @@ const App: React.FC = () => {
             <div className="flex gap-6">
               <a href="https://www.instagram.com/clah_us/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
               <a href="https://www.facebook.com/clah.official/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href="https://www.linkedin.com/company/clah-custom-luxury-affordable-homes/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
               <a href="https://www.youtube.com/@CLAHCustomLuxuryAffordableHome" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
             </div>
             <div className="text-sm">
