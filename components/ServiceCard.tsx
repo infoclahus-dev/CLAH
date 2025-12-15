@@ -27,7 +27,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ entity }) => {
         <ImageWithFallback
           src={entity.imageUrl}
           alt={entity.name}
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur p-3 rounded-2xl shadow-lg text-orange-600">
           <Icon size={24} />
