@@ -199,7 +199,7 @@ const LocationsPage: React.FC = () => {
                         <div className="flex items-start gap-3">
                             <MapPin className="text-orange-500 shrink-0 mt-1" />
                             <p className="text-slate-700 font-medium">
-                                {activeMap === 'hq' ? '2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131' : '161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nBình Thạnh, TP. HCM'}
+                                {activeMap === 'hq' ? '2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131' : '161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nTP. HCM'}
                             </p>
                         </div>
                         {activeMap === 'hq' && (
