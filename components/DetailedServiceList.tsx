@@ -2,39 +2,20 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { CLAH_DETAILED_SERVICES } from '../constants';
-import { 
-  Hammer, PaintBucket, Home, FileText, 
-  Ruler, LayoutTemplate, Box, Palette, 
+import { IMAGES } from '../config/images';
+import {
+  Hammer, PaintBucket, Home, FileText,
+  Ruler, LayoutTemplate, Box, Palette,
   Armchair, Utensils, Shirt, Gem,
   MapPin, Laptop, Coffee, Users,
   LucideIcon, ArrowRight
 } from 'lucide-react';
 
 const SERVICE_IMAGES: Record<string, string[]> = {
-  'custom-home': [
-    '/customhome1.jpg', // Modern House Exterior
-    '/customhome2.jpg', // Construction Site
-    '/customhome3.jpg', // Architecture Detail
-    '/customhome4.jpg'  // Blueprint/Planning
-  ],
-  'nca-designs': [
-    '/ncadesigns1.jpg', // Modern Interior
-    '/ncadesigns2.png', // Decor Setup
-    '/ncadesigns3.png', // Living Room
-    '/ncadesigns4.jpg'  // Minimal Design
-  ],
-  'design-your-rooms': [
-    '/public/designyourroom1.jpg', // Sofa Detail
-    '/public/designyourroom2.jpg', // Kitchen Cabinet
-    '/public/designyourroom3.jpg', // Modern Kitchen
-    '/public/designyourroom4.jpg'  // Wardrobe/Closet
-  ],
-  'ncm-cafe': [
-    '/public/ncmcafe1.jpeg', // Cafe Vibe
-    '/public/ncmcafe2.jpeg', // Co-working
-    '/public/ncmcafe3.jpeg', // Meeting Space
-    '/public/ncmcafe4.jpeg'  // Event/Networking
-  ]
+  'custom-home': IMAGES.customHome.gallery,
+  'nca-designs': IMAGES.ncaDesigns.gallery,
+  'design-your-rooms': IMAGES.designYourRooms.gallery,
+  'ncm-cafe': IMAGES.ncmCafe.gallery
 };
 
 const DetailedServiceList: React.FC = () => {

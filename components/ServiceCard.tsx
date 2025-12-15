@@ -2,6 +2,7 @@ import React from 'react';
 import { Hammer, PenTool, Armchair, Coffee, ArrowRight } from 'lucide-react';
 import { ServiceEntity } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
+import ImageWithFallback from './ImageWithFallback';
 
 interface ServiceCardProps {
   entity: ServiceEntity;
@@ -23,9 +24,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ entity }) => {
       {/* Image Section */}
       <div className="relative h-64 overflow-hidden">
         <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-gray-900/10 transition-colors z-10" />
-        <img 
-          src={entity.imageUrl} 
-          alt={entity.name} 
+        <ImageWithFallback
+          src={entity.imageUrl}
+          alt={entity.name}
           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur p-3 rounded-2xl shadow-lg text-orange-600">

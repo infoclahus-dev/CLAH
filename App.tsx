@@ -13,6 +13,7 @@ import LocationsPage from './components/LocationsPage';
 import EcosystemModel from './components/EcosystemModel';
 import AIChatWidget from './components/AIChatWidget';
 import ContactForm from './components/ContactForm';
+import AdminImageUpload from './components/AdminImageUpload';
 import { CLAH_ENTITIES, UI_TEXT } from './constants';
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
@@ -131,8 +132,10 @@ const App: React.FC = () => {
         {currentView === 'careers' && <CareersPage />}
         {currentView === 'resources' && <ResourcesPage />}
         {currentView === 'locations' && <LocationsPage />}
+        {currentView === 'admin' && <AdminImageUpload />}
 
-        {/* CTA / Contact Section - Always visible */}
+        {/* CTA / Contact Section - Visible except on admin page */}
+        {currentView !== 'admin' && (
         <section id="contact" className="py-16 bg-white text-slate-900">
           <div className="container mx-auto px-4 text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.contact.title[language]}</h2>
@@ -178,11 +181,13 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+        )}
 
         {/* Contact Form - Only show on home, about, and careers */}
         {(currentView === 'home' || currentView === 'about' || currentView === 'careers') && <ContactForm />}
 
-        {/* Footer */}
+        {/* Footer - Hidden on admin page */}
+        {currentView !== 'admin' && (
         <footer className="bg-slate-950 text-slate-400 py-8 border-t border-slate-900">
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-2xl font-bold text-white tracking-tighter">CLAH</div>
@@ -197,9 +202,10 @@ const App: React.FC = () => {
             </div>
           </div>
         </footer>
+        )}
       </main>
 
-      <AIChatWidget />
+      {currentView !== 'admin' && <AIChatWidget />}
     </div>
   );
 };

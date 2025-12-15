@@ -1,6 +1,6 @@
 
 export type Language = 'vn' | 'en';
-export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations';
+export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations' | 'admin';
 
 export interface LocalizedContent {
   vn: string;
