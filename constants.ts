@@ -251,7 +251,7 @@ export const LOCATIONS_DATA: RegionGroup[] = [
         address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
         phone: "+1 650-999-6797",
         email: "info@clah.us",
-        image: "https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
         mapUrl: "https://maps.google.com"
       }
     ]
@@ -265,7 +265,7 @@ export const LOCATIONS_DATA: RegionGroup[] = [
         address: "161 Ung Văn Khiêm, Phường Thạnh Mỹ Tây,\nBình Thạnh, TP. HCM, Vietnam",
         phone: "+84 28 1234 5678",
         email: "vn.info@clah.us",
-        image: "https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg",
+        image: "https://images.unsplash.com/photo-1555217851-614f536ad3f8?q=80&w=1974&auto=format&fit=crop",
         mapUrl: "https://maps.google.com"
       }
     ]
