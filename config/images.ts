@@ -36,7 +36,7 @@ export const IMAGES = {
       'https://i.postimg.cc/xnhz4VtC/ncadesigns3.png',
       '/ncadesigns2.png',
       '/ncadesigns3.jpg',
-      'https://i.postimg.cc/MqNQFJdM/ncadesigns7.jpg',
+      '/ncadesigns1.jpg',
       '/ncadesigns6.jpg',
       '/ncadesigns7.jpg',
     ]
