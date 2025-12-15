@@ -36,6 +36,14 @@ const ContactForm: React.FC = () => {
 
       if (error) throw error;
 
+      await fetch('https://services.leadconnectorhq.com/hooks/RoIyYKYL5UPrQFUDZqRu/webhook-trigger/3221a411-4c51-4092-a2f5-2454bb8a9a4e', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
       setSubmitStatus('success');
       setFormData({
         name: '',
