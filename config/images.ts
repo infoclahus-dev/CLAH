@@ -35,7 +35,7 @@ export const IMAGES = {
     gallery: [
       '/ncadesigns1.jpg',
       '/ncadesigns2.png',
-      '/ncadesigns3.png',
+      'https://i.postimg.cc/z86gcY0V/ncadesigns4.jpg',
       '/ncadesigns4.jpg',
       '/ncadesigns6.jpg',
       '/ncadesigns7.jpg',
