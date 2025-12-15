@@ -58,27 +58,15 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Image Side - Staggered Grid */}
-                <div className="w-full lg:w-1/2 grid grid-cols-2 gap-6">
-                    {/* Left Image (Road) - Pushed Down */}
-                    <div className="pt-16">
+                {/* Image Side - Single Image */}
+                <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6">
+                    <div>
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] group">
                             <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all z-10" />
-                            <img 
-                                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop" 
-                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
-                                alt="Journey Road" 
-                            />
-                        </div>
-                    </div>
-                    {/* Right Image (Mist) - Aligned Top */}
-                    <div>
-                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] group">
-                             <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all z-10" />
-                             <img 
-                                src="https://images.unsplash.com/photo-1501854140884-074bf6b243e7?q=80&w=1000&auto=format&fit=crop" 
-                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
-                                alt="Connecting Communities" 
+                            <img
+                                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop"
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                alt="Journey Road"
                             />
                         </div>
                     </div>
