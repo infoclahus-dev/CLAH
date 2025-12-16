@@ -123,6 +123,61 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
 
       <article className="container mx-auto px-6 py-12 max-w-3xl">
         <style>{`
+          .article-content h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+          }
+          .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+          }
+          .article-content h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+          }
+          .article-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+          }
+          .article-content h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+          }
+          .article-content h6 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+          .article-content p {
+            color: #334155;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+          }
           .article-content a {
             background: linear-gradient(135deg, #ea580c, #d97706);
             -webkit-background-clip: text;
@@ -154,22 +209,32 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
             border-top: 1px solid #e2e8f0;
             margin: 2.5rem 0;
           }
+          .article-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+          }
+          .article-content ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+          }
+          .article-content li {
+            color: #334155;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+          }
+          .article-content strong {
+            color: #0f172a;
+            font-weight: 600;
+          }
+          .article-content img {
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+          }
         `}</style>
         <div
-          className="article-content prose prose-lg max-w-none
-            prose-headings:font-bold prose-headings:text-slate-900
-            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-            prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
-            prose-p:text-slate-700 prose-p:leading-relaxed
-            prose-img:rounded-xl prose-img:shadow-lg
-            prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4
-            prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4
-            prose-li:text-slate-700 prose-li:my-1
-            prose-strong:text-slate-900 prose-strong:font-semibold
-            prose-em:text-slate-600
-            prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-slate-800
-            prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"
+          className="article-content max-w-none"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
 
