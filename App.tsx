@@ -90,7 +90,7 @@ const App: React.FC = () => {
                      {/* Pill 1 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-0 h-[85%] bg-orange-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
                         <img 
-                            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop" 
+                            src="https://i.postimg.cc/bwfdN8B1/custom_Home5.jpg" 
                             alt="Construction" 
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                         />
@@ -98,7 +98,7 @@ const App: React.FC = () => {
                      {/* Pill 2 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-[20%] h-[80%] bg-blue-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
                         <img 
-                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" 
+                            src="https://i.postimg.cc/52WjN1RS/design_Your_Room1.jpg" 
                             alt="Tech" 
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                         />
@@ -106,7 +106,7 @@ const App: React.FC = () => {
                      {/* Pill 3 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-[5%] h-[95%] bg-emerald-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
                         <img 
-                            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop" 
+                            src="https://i.postimg.cc/2SN38mKw/design_Your_Room2.jpg" 
                             alt="Community" 
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                         />
@@ -114,7 +114,7 @@ const App: React.FC = () => {
                      {/* Pill 4 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-[15%] h-[85%] bg-purple-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
                          <img 
-                            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop" 
+                            src="https://i.postimg.cc/d0q1r6Fg/NCM_4.jpg" 
                             alt="Design" 
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                         />
