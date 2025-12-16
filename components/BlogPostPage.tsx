@@ -91,52 +91,78 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
         </div>
       </div>
 
-      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950/80 z-10" />
-        <img
-          src={featuredImage}
-          alt={post.title.rendered}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute bottom-0 left-0 right-0 z-20 p-8">
-          <div className="container mx-auto max-w-3xl">
-            <span className="inline-block px-3 py-1 rounded text-xs font-bold uppercase tracking-wider text-white bg-slate-800/80 backdrop-blur-sm shadow-sm mb-4">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-2xl">
+          <img
+            src={featuredImage}
+            alt={post.title.rendered}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="mt-8 max-w-3xl mx-auto">
+          <h1
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+          />
+          <div className="flex flex-wrap items-center gap-4 text-slate-400 text-sm">
+            <span className="flex items-center gap-2">
+              <Calendar size={16} />
+              {formattedDate}
+            </span>
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20">
               {category}
             </span>
-            <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 drop-shadow-lg"
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            />
-            <div className="flex flex-wrap items-center gap-4 text-white/80 text-sm">
-              <span className="flex items-center gap-2">
-                <Calendar size={16} />
-                {formattedDate}
-              </span>
-              {author && (
-                <span className="flex items-center gap-2">
-                  <User size={16} />
-                  {author.name}
-                </span>
-              )}
-            </div>
           </div>
         </div>
       </div>
 
       <article className="container mx-auto px-6 py-12 max-w-3xl">
+        <style>{`
+          .article-content a {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+          }
+          .article-content a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+            text-decoration-color: #f97316;
+          }
+          .article-content blockquote {
+            background: rgba(30, 41, 59, 0.6);
+            border-left: 4px solid #f97316;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+          }
+          .article-content blockquote p {
+            margin: 0;
+            color: #cbd5e1;
+            font-style: italic;
+          }
+          .article-content hr {
+            border: none;
+            border-top: 1px solid #334155;
+            margin: 2.5rem 0;
+          }
+        `}</style>
         <div
-          className="prose prose-lg prose-invert max-w-none
+          className="article-content prose prose-lg prose-invert max-w-none
             prose-headings:font-bold prose-headings:text-white
             prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+            prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
             prose-p:text-slate-300 prose-p:leading-relaxed
-            prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl prose-img:shadow-lg
-            prose-blockquote:border-l-4 prose-blockquote:border-slate-600 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-slate-400
-            prose-ul:list-disc prose-ul:pl-6
-            prose-ol:list-decimal prose-ol:pl-6
-            prose-li:text-slate-300
+            prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4
+            prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4
+            prose-li:text-slate-300 prose-li:my-1
             prose-strong:text-white prose-strong:font-semibold
+            prose-em:text-slate-200
             prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-slate-200
             prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
@@ -195,10 +221,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
                       {formatPostDate(relatedPost.date)}
                     </div>
                     <h3
-                      className="text-base font-bold text-white leading-snug group-hover:text-cyan-400 transition-colors line-clamp-2"
+                      className="text-base font-bold text-white leading-snug group-hover:text-orange-400 transition-colors line-clamp-2"
                       dangerouslySetInnerHTML={{ __html: relatedPost.title.rendered }}
                     />
-                    <div className="mt-3 flex items-center text-sm font-medium text-slate-400 group-hover:text-cyan-400 transition-colors">
+                    <div className="mt-3 flex items-center text-sm font-medium text-slate-400 group-hover:text-orange-400 transition-colors">
                       {language === 'vn' ? 'Doc them' : 'Read more'}
                       <ArrowRight
                         size={14}
