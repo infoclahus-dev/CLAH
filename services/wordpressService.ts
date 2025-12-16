@@ -1,4 +1,34 @@
 const WP_API_URL = import.meta.env.VITE_WORDPRESS_API_URL || 'https://blog.clah.us/wp-json/wp/v2';
+const REQUEST_TIMEOUT = 8000;
+const MAX_REDIRECTS = 5;
+
+interface CircuitBreakerState {
+  isBroken: boolean;
+  failureCount: number;
+  lastFailureTime: number;
+}
+
+const circuitBreaker: CircuitBreakerState = {
+  isBroken: false,
+  failureCount: 0,
+  lastFailureTime: 0,
+};
+
+function resetCircuitBreakerIfNeeded() {
+  const now = Date.now();
+  if (circuitBreaker.isBroken && now - circuitBreaker.lastFailureTime > 30000) {
+    circuitBreaker.isBroken = false;
+    circuitBreaker.failureCount = 0;
+  }
+}
+
+function recordFailure() {
+  circuitBreaker.failureCount++;
+  circuitBreaker.lastFailureTime = Date.now();
+  if (circuitBreaker.failureCount >= 3) {
+    circuitBreaker.isBroken = true;
+  }
+}
 
 export interface WPAuthor {
   id: number;
@@ -56,7 +86,30 @@ export interface FetchPostsResponse {
   totalPosts: number;
 }
 
+async function fetchWithTimeout(url: string, options: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    return response;
+  } catch (error) {
+    clearTimeout(timeoutId);
+    throw error;
+  }
+}
+
 export async function fetchPosts(params: FetchPostsParams = {}): Promise<FetchPostsResponse> {
+  resetCircuitBreakerIfNeeded();
+
+  if (circuitBreaker.isBroken) {
+    return { posts: [], totalPages: 0, totalPosts: 0 };
+  }
+
   const { page = 1, perPage = 9, categories, search } = params;
 
   const queryParams = new URLSearchParams({
@@ -73,38 +126,72 @@ export async function fetchPosts(params: FetchPostsParams = {}): Promise<FetchPo
     queryParams.set('search', search);
   }
 
-  const response = await fetch(`${WP_API_URL}/posts?${queryParams}`);
+  try {
+    const response = await fetchWithTimeout(`${WP_API_URL}/posts?${queryParams}`);
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch posts: ${response.statusText}`);
+    if (!response.ok) {
+      recordFailure();
+      return { posts: [], totalPages: 0, totalPosts: 0 };
+    }
+
+    const posts: WPPost[] = await response.json();
+    circuitBreaker.failureCount = 0;
+    const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+    const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0', 10);
+
+    return { posts, totalPages, totalPosts };
+  } catch (error) {
+    recordFailure();
+    return { posts: [], totalPages: 0, totalPosts: 0 };
   }
-
-  const posts: WPPost[] = await response.json();
-  const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
-  const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0', 10);
-
-  return { posts, totalPages, totalPosts };
 }
 
 export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
-  const response = await fetch(`${WP_API_URL}/posts?slug=${slug}&_embed=true`);
+  resetCircuitBreakerIfNeeded();
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch post: ${response.statusText}`);
+  if (circuitBreaker.isBroken) {
+    return null;
   }
 
-  const posts: WPPost[] = await response.json();
-  return posts.length > 0 ? posts[0] : null;
+  try {
+    const response = await fetchWithTimeout(`${WP_API_URL}/posts?slug=${slug}&_embed=true`);
+
+    if (!response.ok) {
+      recordFailure();
+      return null;
+    }
+
+    const posts: WPPost[] = await response.json();
+    circuitBreaker.failureCount = 0;
+    return posts.length > 0 ? posts[0] : null;
+  } catch (error) {
+    recordFailure();
+    return null;
+  }
 }
 
 export async function fetchCategories(): Promise<WPCategory[]> {
-  const response = await fetch(`${WP_API_URL}/categories?per_page=100`);
+  resetCircuitBreakerIfNeeded();
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch categories: ${response.statusText}`);
+  if (circuitBreaker.isBroken) {
+    return [];
   }
 
-  return response.json();
+  try {
+    const response = await fetchWithTimeout(`${WP_API_URL}/categories?per_page=100`);
+
+    if (!response.ok) {
+      recordFailure();
+      return [];
+    }
+
+    const categories = await response.json();
+    circuitBreaker.failureCount = 0;
+    return categories;
+  } catch (error) {
+    recordFailure();
+    return [];
+  }
 }
 
 export function getPostFeaturedImage(post: WPPost): string {
@@ -145,7 +232,9 @@ export async function fetchRelatedPosts(
   excludeId: number,
   limit: number = 3
 ): Promise<WPPost[]> {
-  if (categoryIds.length === 0) {
+  resetCircuitBreakerIfNeeded();
+
+  if (categoryIds.length === 0 || circuitBreaker.isBroken) {
     return [];
   }
 
@@ -156,12 +245,19 @@ export async function fetchRelatedPosts(
     _embed: 'true',
   });
 
-  const response = await fetch(`${WP_API_URL}/posts?${queryParams}`);
+  try {
+    const response = await fetchWithTimeout(`${WP_API_URL}/posts?${queryParams}`);
 
-  if (!response.ok) {
+    if (!response.ok) {
+      recordFailure();
+      return [];
+    }
+
+    const posts: WPPost[] = await response.json();
+    circuitBreaker.failureCount = 0;
+    return posts.slice(0, limit);
+  } catch (error) {
+    recordFailure();
     return [];
   }
-
-  const posts: WPPost[] = await response.json();
-  return posts.slice(0, limit);
 }

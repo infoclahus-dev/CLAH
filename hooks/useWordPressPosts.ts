@@ -75,21 +75,31 @@ export function useWordPressPosts(options: UseWordPressPostsOptions = {}): UseWo
         categories: categoryIds.length > 0 ? categoryIds : undefined,
       });
 
-      const mappedPosts = response.posts.map(mapWPPostToResource);
-
-      if (append) {
-        setPosts((prev) => [...prev, ...mappedPosts]);
+      if (response.posts.length === 0 && pageNum === 1) {
+        if (!append) {
+          setPosts(SAMPLE_RESOURCES);
+        }
+        setTotalPages(1);
+        setTotalPosts(SAMPLE_RESOURCES.length);
       } else {
-        setPosts(mappedPosts);
-      }
+        const mappedPosts = response.posts.map(mapWPPostToResource);
 
-      setTotalPages(response.totalPages);
-      setTotalPosts(response.totalPosts);
+        if (append) {
+          setPosts((prev) => [...prev, ...mappedPosts]);
+        } else {
+          setPosts(mappedPosts);
+        }
+
+        setTotalPages(response.totalPages);
+        setTotalPosts(response.totalPosts);
+      }
     } catch (err) {
       console.error('Error fetching WordPress posts:', err);
-      setError('Failed to load posts');
+      setError('Using sample content due to connection issues');
       if (!append && posts.length === 0) {
         setPosts(SAMPLE_RESOURCES);
+        setTotalPages(1);
+        setTotalPosts(SAMPLE_RESOURCES.length);
       }
     } finally {
       setLoading(false);
