@@ -278,7 +278,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'Blog',
     date: 'May 15, 2024',
     image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'top-5-interior-design-trends-2024'
   },
   {
     id: '2',
@@ -286,7 +287,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'Case Study',
     date: 'April 22, 2024',
     image: 'https://images.unsplash.com/photo-1600596542815-27b88e39e140?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'custom-home-villa-project-san-jose'
   },
   {
     id: '3',
@@ -294,7 +296,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'News',
     date: 'April 10, 2024',
     image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'ncm-cafe-networking-event'
   },
   {
     id: '4',
@@ -302,7 +305,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'Blog',
     date: 'March 28, 2024',
     image: 'https://images.unsplash.com/photo-1590332766627-994f38d38f2b?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'benefits-building-adu-california'
   },
   {
     id: '5',
@@ -310,7 +314,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'Press Release',
     date: 'March 15, 2024',
     image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'design-your-rooms-summer-collection'
   },
   {
     id: '6',
@@ -318,7 +323,8 @@ export const SAMPLE_RESOURCES: ResourceItem[] = [
     category: 'News',
     date: 'March 01, 2024',
     image: 'https://images.unsplash.com/photo-1555217851-614f536ad3f8?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: '#',
+    slug: 'clah-ecosystem-connecting-communities'
   }
 ];
 

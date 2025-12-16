@@ -1,6 +1,6 @@
 
 export type Language = 'vn' | 'en';
-export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations' | 'admin';
+export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations' | 'admin' | 'blogPost';
 
 export interface LocalizedContent {
   vn: string;
@@ -52,6 +52,7 @@ export interface ResourceItem {
   date: string;
   image: string;
   link: string;
+  slug: string;
 }
 
 export interface OfficeLocation {

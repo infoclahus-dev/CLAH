@@ -1,5 +1,16 @@
 const WP_API_URL = import.meta.env.VITE_WORDPRESS_API_URL || 'https://blog.clah.us/wp-json/wp/v2';
 
+export interface WPAuthor {
+  id: number;
+  name: string;
+  description: string;
+  avatar_urls: {
+    '24': string;
+    '48': string;
+    '96': string;
+  };
+}
+
 export interface WPPost {
   id: number;
   date: string;
@@ -10,6 +21,7 @@ export interface WPPost {
   link: string;
   featured_media: number;
   categories: number[];
+  author: number;
   _embedded?: {
     'wp:featuredmedia'?: Array<{
       source_url: string;
@@ -20,6 +32,7 @@ export interface WPPost {
       name: string;
       slug: string;
     }>>;
+    author?: WPAuthor[];
   };
 }
 
@@ -127,4 +140,38 @@ export function formatPostDate(dateString: string): string {
 export function stripHtml(html: string): string {
   const doc = new DOMParser().parseFromString(html, 'text/html');
   return doc.body.textContent || '';
+}
+
+export function getPostAuthor(post: WPPost): WPAuthor | null {
+  const authors = post._embedded?.author;
+  if (authors && authors.length > 0) {
+    return authors[0];
+  }
+  return null;
+}
+
+export async function fetchRelatedPosts(
+  categoryIds: number[],
+  excludeId: number,
+  limit: number = 3
+): Promise<WPPost[]> {
+  if (categoryIds.length === 0) {
+    return [];
+  }
+
+  const queryParams = new URLSearchParams({
+    per_page: String(limit + 1),
+    categories: categoryIds.join(','),
+    exclude: String(excludeId),
+    _embed: 'true',
+  });
+
+  const response = await fetch(`${WP_API_URL}/posts?${queryParams}`);
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const posts: WPPost[] = await response.json();
+  return posts.slice(0, limit);
 }

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ServiceCard from './components/ServiceCard';
@@ -10,6 +10,7 @@ import ServicePage from './components/ServicePage';
 import CareersPage from './components/CareersPage';
 import ResourcesPage from './components/ResourcesPage';
 import LocationsPage from './components/LocationsPage';
+import BlogPostPage from './components/BlogPostPage';
 import EcosystemModel from './components/EcosystemModel';
 import AIChatWidget from './components/AIChatWidget';
 import ContactForm from './components/ContactForm';
@@ -22,7 +23,18 @@ import { ViewState } from './types';
 const App: React.FC = () => {
   const { language } = useLanguage();
   const [currentView, setCurrentView] = useState<ViewState>('home');
+  const [currentBlogSlug, setCurrentBlogSlug] = useState<string | null>(null);
   const t = UI_TEXT;
+
+  const handleViewBlogPost = useCallback((slug: string) => {
+    setCurrentBlogSlug(slug);
+    setCurrentView('blogPost');
+  }, []);
+
+  const handleBackToResources = useCallback(() => {
+    setCurrentBlogSlug(null);
+    setCurrentView('resources');
+  }, []);
 
   return (
     <div className="min-h-screen font-sans bg-slate-50 text-slate-800 selection:bg-blue-100 selection:text-blue-900">
@@ -130,12 +142,19 @@ const App: React.FC = () => {
         {currentView === 'contact' && <ContactPage />}
         {currentView === 'services' && <ServicePage />}
         {currentView === 'careers' && <CareersPage />}
-        {currentView === 'resources' && <ResourcesPage />}
+        {currentView === 'resources' && <ResourcesPage onViewPost={handleViewBlogPost} />}
         {currentView === 'locations' && <LocationsPage />}
+        {currentView === 'blogPost' && currentBlogSlug && (
+          <BlogPostPage
+            slug={currentBlogSlug}
+            onBack={handleBackToResources}
+            onViewPost={handleViewBlogPost}
+          />
+        )}
         {currentView === 'admin' && <AdminImageUpload />}
 
-        {/* CTA / Contact Section - Visible except on admin page */}
-        {currentView !== 'admin' && (
+        {/* CTA / Contact Section - Visible except on admin and blog post pages */}
+        {currentView !== 'admin' && currentView !== 'blogPost' && (
         <section id="contact" className="py-16 bg-white text-slate-900">
           <div className="container mx-auto px-4 text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.contact.title[language]}</h2>

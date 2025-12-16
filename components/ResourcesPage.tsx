@@ -17,7 +17,11 @@ const SkeletonCard: React.FC = () => (
   </div>
 );
 
-const ResourcesPage: React.FC = () => {
+interface ResourcesPageProps {
+  onViewPost: (slug: string) => void;
+}
+
+const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
   const { language } = useLanguage();
   const t = UI_TEXT.resourcesPage;
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -149,12 +153,10 @@ const ResourcesPage: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayPosts.map((item) => (
-              <a
+              <div
                 key={item.id}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:-translate-y-1"
+                onClick={() => onViewPost(item.slug)}
+                className="group cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:-translate-y-1"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10" />
@@ -190,7 +192,7 @@ const ResourcesPage: React.FC = () => {
                     />
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         )}

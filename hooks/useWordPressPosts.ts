@@ -37,6 +37,7 @@ function mapWPPostToResource(post: WPPost): ResourceItem {
     date: formatPostDate(post.date),
     image: getPostFeaturedImage(post),
     link: post.link,
+    slug: post.slug,
   };
 }
 
