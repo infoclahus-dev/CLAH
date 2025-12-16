@@ -20,6 +20,7 @@ interface UseWordPressPostsReturn {
   posts: ResourceItem[];
   categories: WPCategory[];
   loading: boolean;
+  initialLoading: boolean;
   error: string | null;
   hasMore: boolean;
   loadMore: () => void;
@@ -47,6 +48,7 @@ export function useWordPressPosts(options: UseWordPressPostsOptions = {}): UseWo
   const [posts, setPosts] = useState<ResourceItem[]>([]);
   const [categories, setCategories] = useState<WPCategory[]>([]);
   const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -91,6 +93,7 @@ export function useWordPressPosts(options: UseWordPressPostsOptions = {}): UseWo
       }
     } finally {
       setLoading(false);
+      setInitialLoading(false);
     }
   }, [categorySlug, categories, perPage, posts.length]);
 
@@ -123,6 +126,7 @@ export function useWordPressPosts(options: UseWordPressPostsOptions = {}): UseWo
     posts,
     categories,
     loading,
+    initialLoading,
     error,
     hasMore: page < totalPages,
     loadMore,

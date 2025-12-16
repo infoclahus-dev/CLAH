@@ -35,7 +35,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     blog: 'blog',
   };
 
-  const { posts, loading, error, hasMore, loadMore } = useWordPressPosts({
+  const { posts, loading, initialLoading, error, hasMore, loadMore } = useWordPressPosts({
     perPage: 9,
     categorySlug: categorySlugMap[activeCategory] || 'all',
   });
@@ -45,9 +45,13 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
   }, []);
 
   const displayPosts = useMemo(() => {
-    let items: ResourceItem[] = posts.length > 0 ? posts : SAMPLE_RESOURCES;
+    if (initialLoading) {
+      return [];
+    }
 
-    if (activeCategory !== 'all' && posts.length === 0) {
+    let items: ResourceItem[] = posts.length > 0 ? posts : (error ? SAMPLE_RESOURCES : []);
+
+    if (activeCategory !== 'all' && posts.length === 0 && error) {
       items = SAMPLE_RESOURCES.filter(
         (item) => item.category.toLowerCase().replace(' ', '') === activeCategory
       );
@@ -64,7 +68,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     }
 
     return items;
-  }, [posts, activeCategory, searchTerm]);
+  }, [posts, activeCategory, searchTerm, initialLoading, error]);
 
   const categories = [
     { id: 'all', label: t.filters.all[language] },
@@ -138,7 +142,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
           </div>
         )}
 
-        {loading && displayPosts.length === 0 ? (
+        {initialLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(6)].map((_, i) => (
               <SkeletonCard key={i} />
