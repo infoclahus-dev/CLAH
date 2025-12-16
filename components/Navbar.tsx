@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Globe, ChevronDown, ChevronRight, Hammer, PenTool, Armchair, Coffee } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';

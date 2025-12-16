@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Calendar, User } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useWordPressPost } from '../hooks/useWordPressPost';
 import {

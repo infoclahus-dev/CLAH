@@ -1,9 +1,3 @@
-// Centralized image configuration for CLAH Ecosystem
-// Uses local images from public folder
-
-/**
- * Fallback image URL to use when an image fails to load
- */
 export const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop';
 
 // Image paths using local public folder
@@ -66,8 +60,3 @@ export const IMAGES = {
     ]
   }
 } as const;
-
-// Helper to get image with fallback
-export function getImageWithFallback(url: string | undefined, fallback = FALLBACK_IMAGE): string {
-  return url || fallback;
-}

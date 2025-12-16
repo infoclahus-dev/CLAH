@@ -123,14 +123,6 @@ export function getPostCategory(post: WPPost): string {
   return 'Blog';
 }
 
-export function getPostCategories(post: WPPost): string[] {
-  const terms = post._embedded?.['wp:term']?.[0];
-  if (terms && terms.length > 0) {
-    return terms.map(term => term.name);
-  }
-  return ['Blog'];
-}
-
 export function formatPostDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
@@ -138,11 +130,6 @@ export function formatPostDate(dateString: string): string {
     month: 'long',
     day: 'numeric',
   });
-}
-
-export function stripHtml(html: string): string {
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent || '';
 }
 
 export function getPostAuthor(post: WPPost): WPAuthor | null {

@@ -1,7 +1,6 @@
-// Admin component for uploading images to Supabase Storage
 import React, { useState } from 'react';
 import { Upload, Check, X, AlertCircle } from 'lucide-react';
-import { uploadImage, IMAGE_MAPPINGS, getImageUrl } from '../services/imageUploadService';
+import { uploadImage, IMAGE_MAPPINGS } from '../services/imageUploadService';
 
 interface ImageStatus {
   fileName: string;

@@ -1,4 +1,3 @@
-
 import { ServiceEntity, ServiceItem, CompanyServiceGroup, ResourceItem, RegionGroup } from './types';
 import { IMAGES } from './config/images';
 

@@ -1,4 +1,3 @@
-
 export type Language = 'vn' | 'en';
 export type ViewState = 'home' | 'about' | 'contact' | 'services' | 'careers' | 'resources' | 'locations' | 'admin' | 'blogPost';
 
