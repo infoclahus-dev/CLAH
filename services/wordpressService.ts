@@ -118,14 +118,17 @@ export function getPostFeaturedImage(post: WPPost): string {
 export function getPostCategory(post: WPPost): string {
   const terms = post._embedded?.['wp:term']?.[0];
   if (terms && terms.length > 0) {
-    const categoryName = terms[0].name.toLowerCase();
-    if (categoryName.includes('news')) return 'News';
-    if (categoryName.includes('case') || categoryName.includes('study')) return 'Case Study';
-    if (categoryName.includes('press')) return 'Press Release';
-    if (categoryName.includes('blog')) return 'Blog';
     return terms[0].name;
   }
   return 'Blog';
+}
+
+export function getPostCategories(post: WPPost): string[] {
+  const terms = post._embedded?.['wp:term']?.[0];
+  if (terms && terms.length > 0) {
+    return terms.map(term => term.name);
+  }
+  return ['Blog'];
 }
 
 export function formatPostDate(dateString: string): string {
