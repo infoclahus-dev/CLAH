@@ -18,14 +18,18 @@ interface BlogPostPageProps {
 
 const SkeletonLoader: React.FC = () => (
   <div className="animate-pulse">
-    <div className="h-[50vh] bg-slate-800" />
+    <div className="container mx-auto px-6 max-w-4xl pt-8">
+      <div className="aspect-[16/9] bg-slate-200 rounded-2xl" />
+      <div className="mt-8 max-w-3xl mx-auto">
+        <div className="h-10 bg-slate-200 rounded w-full mb-2" />
+        <div className="h-10 bg-slate-200 rounded w-3/4 mb-8" />
+        <div className="h-4 bg-slate-200 rounded w-32" />
+      </div>
+    </div>
     <div className="container mx-auto px-6 py-12 max-w-3xl">
-      <div className="h-4 bg-slate-700 rounded w-32 mb-4" />
-      <div className="h-10 bg-slate-700 rounded w-full mb-2" />
-      <div className="h-10 bg-slate-700 rounded w-3/4 mb-8" />
       <div className="space-y-4">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="h-4 bg-slate-700 rounded w-full" />
+          <div key={i} className="h-4 bg-slate-200 rounded w-full" />
         ))}
       </div>
     </div>
@@ -42,7 +46,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
 
   if (loading) {
     return (
-      <div className="bg-slate-950 min-h-screen pt-20">
+      <div className="bg-white min-h-screen pt-20">
         <SkeletonLoader />
       </div>
     );
@@ -50,19 +54,19 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
 
   if (error || !post) {
     return (
-      <div className="bg-slate-950 min-h-screen pt-20">
+      <div className="bg-white min-h-screen pt-20">
         <div className="container mx-auto px-6 py-20 text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">
+          <h1 className="text-2xl font-bold text-slate-900 mb-4">
             {language === 'vn' ? 'Khong tim thay bai viet' : 'Post Not Found'}
           </h1>
-          <p className="text-slate-400 mb-8">
+          <p className="text-slate-600 mb-8">
             {language === 'vn'
               ? 'Bai viet ban tim kiem khong ton tai hoac da bi xoa.'
               : 'The post you are looking for does not exist or has been removed.'}
           </p>
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-full font-medium hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors"
           >
             <ArrowLeft size={18} />
             {language === 'vn' ? 'Quay lai Resources' : 'Back to Resources'}
@@ -78,12 +82,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
   const formattedDate = formatPostDate(post.date);
 
   return (
-    <div className="bg-slate-950 min-h-screen pt-20">
-      <div className="bg-slate-950">
+    <div className="bg-white min-h-screen pt-20">
+      <div className="bg-white border-b border-slate-100">
         <div className="container mx-auto px-6 py-4">
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors font-medium"
           >
             <ArrowLeft size={18} />
             {language === 'vn' ? 'Tat ca bai viet' : 'All Posts'}
@@ -91,8 +95,8 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
         </div>
       </div>
 
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-2xl">
+      <div className="container mx-auto px-6 pt-8 max-w-4xl">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-xl">
           <img
             src={featuredImage}
             alt={post.title.rendered}
@@ -102,15 +106,15 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
 
         <div className="mt-8 max-w-3xl mx-auto">
           <h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />
-          <div className="flex flex-wrap items-center gap-4 text-slate-400 text-sm">
+          <div className="flex flex-wrap items-center gap-4 text-slate-500 text-sm">
             <span className="flex items-center gap-2">
               <Calendar size={16} />
               {formattedDate}
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-orange-600 bg-orange-50 border border-orange-200">
               {category}
             </span>
           </div>
@@ -120,20 +124,21 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
       <article className="container mx-auto px-6 py-12 max-w-3xl">
         <style>{`
           .article-content a {
-            background: linear-gradient(135deg, #f97316, #f59e0b);
+            background: linear-gradient(135deg, #ea580c, #d97706);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
+            font-weight: 500;
             transition: opacity 0.2s ease;
           }
           .article-content a:hover {
             opacity: 0.8;
             text-decoration: underline;
-            text-decoration-color: #f97316;
+            text-decoration-color: #ea580c;
           }
           .article-content blockquote {
-            background: rgba(30, 41, 59, 0.6);
+            background: #f8fafc;
             border-left: 4px solid #f97316;
             border-radius: 0.75rem;
             padding: 1.5rem;
@@ -141,48 +146,48 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
           }
           .article-content blockquote p {
             margin: 0;
-            color: #cbd5e1;
+            color: #475569;
             font-style: italic;
           }
           .article-content hr {
             border: none;
-            border-top: 1px solid #334155;
+            border-top: 1px solid #e2e8f0;
             margin: 2.5rem 0;
           }
         `}</style>
         <div
-          className="article-content prose prose-lg prose-invert max-w-none
-            prose-headings:font-bold prose-headings:text-white
+          className="article-content prose prose-lg max-w-none
+            prose-headings:font-bold prose-headings:text-slate-900
             prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
             prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
-            prose-p:text-slate-300 prose-p:leading-relaxed
+            prose-p:text-slate-700 prose-p:leading-relaxed
             prose-img:rounded-xl prose-img:shadow-lg
             prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4
             prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4
-            prose-li:text-slate-300 prose-li:my-1
-            prose-strong:text-white prose-strong:font-semibold
-            prose-em:text-slate-200
-            prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-slate-200
+            prose-li:text-slate-700 prose-li:my-1
+            prose-strong:text-slate-900 prose-strong:font-semibold
+            prose-em:text-slate-600
+            prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-slate-800
             prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
 
         {author && (
-          <div className="mt-16 pt-8 border-t border-slate-800">
+          <div className="mt-16 pt-8 border-t border-slate-200">
             <div className="flex items-center gap-4">
               {author.avatar_urls?.['96'] && (
                 <img
                   src={author.avatar_urls['96']}
                   alt={author.name}
-                  className="w-12 h-12 rounded-full object-cover ring-2 ring-slate-700"
+                  className="w-12 h-12 rounded-full object-cover ring-2 ring-slate-200"
                 />
               )}
               <div>
                 <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
                   {language === 'vn' ? 'Tac gia' : 'Written by'}
                 </p>
-                <h4 className="text-base font-semibold text-white">{author.name}</h4>
+                <h4 className="text-base font-semibold text-slate-900">{author.name}</h4>
               </div>
             </div>
           </div>
@@ -190,9 +195,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
       </article>
 
       {relatedPosts.length > 0 && (
-        <section className="bg-slate-900 border-t border-slate-800 py-16">
+        <section className="bg-slate-50 border-t border-slate-200 py-16">
           <div className="container mx-auto px-6">
-            <h2 className="text-2xl font-bold text-white mb-8 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               {language === 'vn' ? 'Bai viet lien quan' : 'Related Posts'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -200,10 +205,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
                 <div
                   key={relatedPost.id}
                   onClick={() => onViewPost(relatedPost.slug)}
-                  className="group cursor-pointer bg-slate-800/50 rounded-xl overflow-hidden hover:bg-slate-800 transition-all duration-300 border border-slate-700/50 hover:border-slate-600 hover:-translate-y-1"
+                  className="group cursor-pointer bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-slate-300 hover:-translate-y-1"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors z-10" />
                     <img
                       src={getPostFeaturedImage(relatedPost)}
                       alt={relatedPost.title.rendered}
@@ -221,10 +225,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onViewPost })
                       {formatPostDate(relatedPost.date)}
                     </div>
                     <h3
-                      className="text-base font-bold text-white leading-snug group-hover:text-orange-400 transition-colors line-clamp-2"
+                      className="text-base font-bold text-slate-900 leading-snug group-hover:text-orange-600 transition-colors line-clamp-2"
                       dangerouslySetInnerHTML={{ __html: relatedPost.title.rendered }}
                     />
-                    <div className="mt-3 flex items-center text-sm font-medium text-slate-400 group-hover:text-orange-400 transition-colors">
+                    <div className="mt-3 flex items-center text-sm font-medium text-slate-500 group-hover:text-orange-600 transition-colors">
                       {language === 'vn' ? 'Doc them' : 'Read more'}
                       <ArrowRight
                         size={14}
