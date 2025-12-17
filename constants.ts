@@ -440,8 +440,8 @@ export const UI_TEXT = {
           list: [
               {
                 title: "Admin & Logistics Staff",
-                dept: "CLAH HQ",
-                location: "San Jose, CA",
+                dept: "Vietnam Office",
+                location: "Ho Chi Minh City, Vietnam",
                 type: "Full-time",
                 applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Admin+Logistics+Staff",
                 details: {
@@ -465,8 +465,8 @@ export const UI_TEXT = {
               },
               {
                 title: "Production & Quality Control Lead",
-                dept: "Design Your Rooms",
-                location: "San Jose, CA",
+                dept: "Vietnam Office",
+                location: "Ho Chi Minh City, Vietnam",
                 type: "Full-time",
                 applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Production+QC+Lead",
                 details: {
