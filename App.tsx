@@ -43,7 +43,7 @@ const App: React.FC = () => {
       <main>
         {currentView === 'home' && (
           <>
-            <HeroSection />
+            <HeroSection onNavigate={setCurrentView} />
 
              {/* Ecosystem Model Graphic */}
              <EcosystemModel />

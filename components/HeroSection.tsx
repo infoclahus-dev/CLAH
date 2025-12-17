@@ -3,8 +3,13 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
 import BlueprintCanvas from './BlueprintCanvas';
+import { ViewState } from '../types';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onNavigate?: (view: ViewState) => void;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
   const { language } = useLanguage();
   const text = UI_TEXT.hero;
 
@@ -37,7 +42,10 @@ const HeroSection: React.FC = () => {
             {text.cta[language]}
             <ArrowRight size={20} />
           </a>
-          <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-semibold backdrop-blur-sm transition-all">
+          <button
+            onClick={() => { onNavigate?.('about'); window.scrollTo(0, 0); }}
+            className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-semibold backdrop-blur-sm transition-all"
+          >
             {text.aboutBtn[language]}
           </button>
         </div>
