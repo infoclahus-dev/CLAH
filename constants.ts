@@ -585,7 +585,8 @@ export const UI_TEXT = {
       news: { vn: "Tin Tức", en: "News" },
       caseStudy: { vn: "Dự Án Tiêu Biểu", en: "Case Studies" },
       press: { vn: "Thông Cáo Báo Chí", en: "Press Release" },
-      blog: { vn: "Blog", en: "Blog" }
+      blog: { vn: "Blog", en: "Blog" },
+      clahsLife: { vn: "CLAH's Life", en: "CLAH's Life" }
     },
     readMore: { vn: "Đọc thêm", en: "Read more" }
   },

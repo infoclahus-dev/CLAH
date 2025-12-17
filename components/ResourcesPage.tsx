@@ -32,6 +32,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     casestudy: 'case-study',
     pressrelease: 'press-release',
     blog: 'blog',
+    clahslife: 'clahs-life',
   };
 
   const { posts, loading, initialLoading, error, hasMore, loadMore } = useWordPressPosts({
@@ -69,6 +70,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     { id: 'casestudy', label: t.filters.caseStudy[language] },
     { id: 'pressrelease', label: t.filters.press[language] },
     { id: 'blog', label: t.filters.blog[language] },
+    { id: 'clahslife', label: t.filters.clahsLife[language] },
   ];
 
   const getCategoryColor = (category: string): string => {
@@ -77,6 +79,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     if (cat.includes('blog')) return 'bg-orange-500';
     if (cat.includes('case')) return 'bg-emerald-600';
     if (cat.includes('press')) return 'bg-rose-600';
+    if (cat.includes('clah') || cat.includes('life')) return 'bg-violet-600';
     return 'bg-slate-600';
   };
 
