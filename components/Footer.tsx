@@ -12,8 +12,9 @@ const Footer: React.FC = () => {
           <a href="https://www.linkedin.com/company/clah-custom-luxury-affordable-homes/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
           <a href="https://www.youtube.com/@CLAHCustomLuxuryAffordableHome" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
         </div>
-        <div className="text-sm">
-          © 2025 CLAH Ecosystem. All rights reserved.
+        <div className="text-sm text-center">
+          <div>© 2025 CLAH Ecosystem. All rights reserved.</div>
+          <div className="mt-1">Website designed and developed by Grace Le.</div>
         </div>
       </div>
     </footer>
