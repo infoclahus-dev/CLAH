@@ -1,13 +1,6 @@
-# Block Google robots from crawling this site
+# Allow all robots to crawl this site
 
-User-agent: Googlebot
-Disallow: /
+User-agent: *
+Allow: /
 
-User-agent: Googlebot-Image
-Disallow: /
-
-User-agent: Googlebot-News
-Disallow: /
-
-User-agent: Googlebot-Video
-Disallow: /
+Sitemap: https://www.clah.us/sitemap.xml
