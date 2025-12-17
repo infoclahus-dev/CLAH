@@ -11,7 +11,6 @@ import ResourcesPage from './components/ResourcesPage';
 import LocationsPage from './components/LocationsPage';
 import BlogPostPage from './components/BlogPostPage';
 import EcosystemModel from './components/EcosystemModel';
-import AIChatWidget from './components/AIChatWidget';
 import ContactForm from './components/ContactForm';
 import AdminImageUpload from './components/AdminImageUpload';
 import Footer from './components/Footer';
@@ -270,8 +269,6 @@ const App: React.FC = () => {
 
         {currentView !== 'admin' && currentView !== 'blogPost' && <Footer />}
       </main>
-
-      {currentView !== 'admin' && <AIChatWidget />}
     </div>
   );
 };
