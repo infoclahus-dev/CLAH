@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { UI_TEXT, SAMPLE_RESOURCES } from '../constants';
+import { UI_TEXT } from '../constants';
 import { ArrowRight, Search, Loader2 } from 'lucide-react';
 import { useWordPressPosts } from '../hooks/useWordPressPosts';
-import { ResourceItem } from '../types';
 
 const SkeletonCard: React.FC = () => (
   <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 animate-pulse">
@@ -49,13 +48,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
       return [];
     }
 
-    let items: ResourceItem[] = posts.length > 0 ? posts : (error ? SAMPLE_RESOURCES : []);
-
-    if (activeCategory !== 'all' && posts.length === 0 && error) {
-      items = SAMPLE_RESOURCES.filter(
-        (item) => item.category.toLowerCase().replace(' ', '') === activeCategory
-      );
-    }
+    let items = posts;
 
     if (searchTerm.trim()) {
       const term = searchTerm.toLowerCase();
@@ -68,7 +61,7 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ onViewPost }) => {
     }
 
     return items;
-  }, [posts, activeCategory, searchTerm, initialLoading, error]);
+  }, [posts, searchTerm, initialLoading]);
 
   const categories = [
     { id: 'all', label: t.filters.all[language] },

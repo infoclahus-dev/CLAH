@@ -1,4 +1,4 @@
-import { ServiceEntity, ServiceItem, CompanyServiceGroup, ResourceItem, RegionGroup } from './types';
+import { ServiceEntity, ServiceItem, CompanyServiceGroup, RegionGroup } from './types';
 import { IMAGES } from './config/images';
 
 export const CLAH_ENTITIES: ServiceEntity[] = [
@@ -267,63 +267,6 @@ export const LOCATIONS_DATA: RegionGroup[] = [
         mapUrl: "https://maps.google.com"
       }
     ]
-  }
-];
-
-export const SAMPLE_RESOURCES: ResourceItem[] = [
-  {
-    id: '1',
-    title: { vn: 'Top 5 Xu Hướng Thiết Kế Nội Thất Tại Silicon Valley Năm 2024', en: 'Top 5 Interior Design Trends in Silicon Valley for 2024' },
-    category: 'Blog',
-    date: 'May 15, 2024',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'top-5-interior-design-trends-2024'
-  },
-  {
-    id: '2',
-    title: { vn: 'Custom Home Hoàn Thành Dự Án Biệt Thự Triệu Đô Tại San Jose', en: 'Custom Home Completes Multi-Million Dollar Villa Project in San Jose' },
-    category: 'Case Study',
-    date: 'April 22, 2024',
-    image: 'https://images.unsplash.com/photo-1600596542815-27b88e39e140?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'custom-home-villa-project-san-jose'
-  },
-  {
-    id: '3',
-    title: { vn: 'NCM Cafe Tổ Chức Sự Kiện Networking Cho Các Startup Công Nghệ', en: 'NCM Cafe Hosts Networking Event for Tech Startups' },
-    category: 'News',
-    date: 'April 10, 2024',
-    image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'ncm-cafe-networking-event'
-  },
-  {
-    id: '4',
-    title: { vn: 'Lợi Ích Của Việc Xây Dựng ADU Tại California', en: 'The Benefits of Building an ADU in California' },
-    category: 'Blog',
-    date: 'March 28, 2024',
-    image: 'https://images.unsplash.com/photo-1590332766627-994f38d38f2b?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'benefits-building-adu-california'
-  },
-  {
-    id: '5',
-    title: { vn: 'Design Your Rooms Ra Mắt Bộ Sưu Tập Nội Thất Mùa Hè', en: 'Design Your Rooms Launches Summer Furniture Collection' },
-    category: 'Press Release',
-    date: 'March 15, 2024',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'design-your-rooms-summer-collection'
-  },
-  {
-    id: '6',
-    title: { vn: 'CLAH Ecosystem: Kết Nối Cộng Đồng Thông Qua Không Gian Sống', en: 'CLAH Ecosystem: Connecting Communities Through Living Spaces' },
-    category: 'News',
-    date: 'March 01, 2024',
-    image: 'https://images.unsplash.com/photo-1555217851-614f536ad3f8?q=80&w=800&auto=format&fit=crop',
-    link: '#',
-    slug: 'clah-ecosystem-connecting-communities'
   }
 ];
 

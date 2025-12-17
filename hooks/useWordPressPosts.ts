@@ -9,7 +9,6 @@ import {
   WPCategory,
 } from '../services/wordpressService';
 import { ResourceItem } from '../types';
-import { SAMPLE_RESOURCES } from '../constants';
 
 interface UseWordPressPostsOptions {
   perPage?: number;
@@ -75,32 +74,19 @@ export function useWordPressPosts(options: UseWordPressPostsOptions = {}): UseWo
         categories: categoryIds.length > 0 ? categoryIds : undefined,
       });
 
-      if (response.posts.length === 0 && pageNum === 1) {
-        if (!append) {
-          setPosts(SAMPLE_RESOURCES);
-        }
-        setTotalPages(1);
-        setTotalPosts(SAMPLE_RESOURCES.length);
+      const mappedPosts = response.posts.map(mapWPPostToResource);
+
+      if (append) {
+        setPosts((prev) => [...prev, ...mappedPosts]);
       } else {
-        const mappedPosts = response.posts.map(mapWPPostToResource);
-
-        if (append) {
-          setPosts((prev) => [...prev, ...mappedPosts]);
-        } else {
-          setPosts(mappedPosts);
-        }
-
-        setTotalPages(response.totalPages);
-        setTotalPosts(response.totalPosts);
+        setPosts(mappedPosts);
       }
+
+      setTotalPages(response.totalPages);
+      setTotalPosts(response.totalPosts);
     } catch (err) {
       console.error('Error fetching WordPress posts:', err);
-      setError('Using sample content due to connection issues');
-      if (!append && posts.length === 0) {
-        setPosts(SAMPLE_RESOURCES);
-        setTotalPages(1);
-        setTotalPosts(SAMPLE_RESOURCES.length);
-      }
+      setError('Could not load posts from WordPress');
     } finally {
       setLoading(false);
       setInitialLoading(false);
