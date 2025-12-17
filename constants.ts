@@ -438,99 +438,24 @@ export const UI_TEXT = {
               deadline: { vn: "Hạn nộp hồ sơ", en: "Application Deadline" }
           },
           list: [
-              { 
-                title: "Senior Architect", 
-                dept: "NCA Designs", 
-                location: "San Jose, CA", 
+              {
+                title: "Admin & Logistics Staff",
+                dept: "CLAH HQ",
+                location: "San Jose, CA",
                 type: "Full-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Senior+Architect",
+                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Admin+Logistics+Staff",
                 details: {
                     description: {
-                        vn: "Chịu trách nhiệm dẫn dắt các dự án thiết kế kiến trúc và nội thất. Làm việc trực tiếp với khách hàng để phát triển ý tưởng và quản lý đội ngũ thiết kế.",
-                        en: "Lead architectural and interior design projects. Work directly with clients to develop concepts and manage the design team."
+                        vn: "Admin: Soạn thảo và quản lý hợp đồng, tài liệu pháp lý và hồ sơ công ty. Hỗ trợ Giám đốc lập lịch họp và chuẩn bị báo cáo nội bộ. Logistics: Xử lý đặt chỗ tàu/container. Quản lý tài liệu xuất nhập khẩu (Invoice, Packing List, Bill of Lading) và phối hợp với đơn vị chuyển tiếp để đảm bảo giao hàng đúng hạn.",
+                        en: "Admin: Draft and manage contracts, legal documents, and company records. Assist the Director with scheduling meetings and preparing internal reports. Logistics: Handle bookings for vessels/containers. Manage export-import documentation (Invoice, Packing List, Bill of Lading) and coordinate with forwarders to ensure on-time delivery."
                     },
                     requirements: {
-                        vn: ["Tốt nghiệp Đại học chuyên ngành Kiến trúc", "Ít nhất 5 năm kinh nghiệm", "Thành thạo AutoCAD, SketchUp, Revit", "Có chứng chỉ hành nghề là lợi thế"],
-                        en: ["Bachelor's degree in Architecture", "Minimum 5 years experience", "Proficient in AutoCAD, SketchUp, Revit", "Licensure is a plus"]
+                        vn: ["Không yêu cầu kinh nghiệm (Được đào tạo đầy đủ)", "Tốt nghiệp Cao đẳng trở lên (Ưu tiên: Quản trị Kinh doanh, Logistics, Quản trị Văn phòng)", "Thành thạo Microsoft Office (Word, Excel). Kỹ năng giao tiếp và tổ chức tốt", "Cẩn thận, chủ động và mong muốn học hỏi/phát triển sự nghiệp dài hạn"],
+                        en: ["No prior experience required (Full training provided)", "College degree or higher (Preferred: Business Admin, Logistics, Office Admin)", "Proficient in Microsoft Office (Word, Excel). Strong communication and organizational skills", "Meticulous, proactive, and eager to learn/develop a long-term career"]
                     },
                     benefits: {
-                         vn: ["Lương $80k - $120k/năm", "Thưởng dự án", "Cơ hội trở thành Partner"],
-                         en: ["Salary $80k - $120k/year", "Project bonuses", "Partnership opportunity"]
-                    },
-                    deadline: {
-                        vn: "30/06/2024",
-                        en: "June 30, 2024"
-                    }
-                }
-              },
-              { 
-                title: "Construction Project Manager", 
-                dept: "Custom Home", 
-                location: "San Jose, CA", 
-                type: "Full-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Construction+Project+Manager",
-                details: {
-                    description: {
-                        vn: "Quản lý toàn bộ vòng đời dự án xây dựng từ lập kế hoạch, dự toán ngân sách đến giám sát thi công và bàn giao.",
-                        en: "Manage the full construction project lifecycle from planning and budgeting to site supervision and handover."
-                    },
-                    requirements: {
-                        vn: ["Kinh nghiệm quản lý dự án xây dựng dân dụng 3+ năm", "Hiểu biết về luật xây dựng California", "Kỹ năng giao tiếp và giải quyết vấn đề tốt"],
-                        en: ["3+ years in residential construction management", "Knowledge of California building codes", "Strong communication and problem-solving skills"]
-                    },
-                    benefits: {
-                         vn: ["Lương $90k - $130k/năm", "Xe công ty", "Bảo hiểm y tế toàn phần"],
-                         en: ["Salary $90k - $130k/year", "Company vehicle", "Full health insurance"]
-                    },
-                    deadline: {
-                        vn: "15/05/2024",
-                        en: "May 15, 2024"
-                    }
-                }
-              },
-              { 
-                title: "Interior Designer", 
-                dept: "Design Your Rooms", 
-                location: "San Jose, CA", 
-                type: "Full-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Interior+Designer",
-                details: {
-                    description: {
-                        vn: "Tư vấn và thiết kế nội thất tùy chỉnh cho khách hàng. Lựa chọn vật liệu, màu sắc và phối hợp với xưởng sản xuất.",
-                        en: "Consult and design custom furniture for clients. Select materials, colors, and coordinate with the production workshop."
-                    },
-                    requirements: {
-                        vn: ["Có gu thẩm mỹ tốt", "Kinh nghiệm với phần mềm thiết kế 3D", "Am hiểu về vật liệu nội thất"],
-                        en: ["Strong aesthetic sense", "Experience with 3D design software", "Knowledge of interior materials"]
-                    },
-                    benefits: {
-                         vn: ["Lương $60k - $90k/năm", "Hoa hồng bán hàng", "Môi trường làm việc sáng tạo"],
-                         en: ["Salary $60k - $90k/year", "Sales commission", "Creative working environment"]
-                    },
-                    deadline: {
-                        vn: "30/05/2024",
-                        en: "May 30, 2024"
-                    }
-                }
-              },
-              { 
-                title: "Community Manager", 
-                dept: "NCM Cafe", 
-                location: "San Jose, CA", 
-                type: "Part-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Community+Manager",
-                details: {
-                    description: {
-                        vn: "Quản lý vận hành hàng ngày tại NCM Cafe. Tổ chức các sự kiện networking và xây dựng cộng đồng startup.",
-                        en: "Manage daily operations at NCM Cafe. Organize networking events and build the startup community."
-                    },
-                    requirements: {
-                        vn: ["Yêu thích giao tiếp và kết nối", "Kinh nghiệm trong ngành F&B hoặc tổ chức sự kiện", "Tiếng Anh tốt"],
-                        en: ["Love communication and networking", "Experience in F&B or event planning", "Fluent in English"]
-                    },
-                    benefits: {
-                         vn: ["Lương theo giờ + Tips", "Đồ uống miễn phí", "Cơ hội network với các nhà đầu tư"],
-                         en: ["Hourly wage + Tips", "Free drinks", "Networking with investors"]
+                         vn: ["Lương cạnh tranh + Lương tháng 13 + Thưởng lợi nhuận cuối năm", "Trợ cấp Con: 1,000,000 VND/con", "Trợ cấp Học tập: 5% lương cho phát triển bản thân", "Văn hóa năng động 'Work hard, play hard', pantry hiện đại và du lịch công ty hàng năm"],
+                         en: ["Competitive salary + 13th-month salary + Year-end profit bonus", "Child Allowance: 1,000,000 VND/child", "Learning Allowance: 5% of salary for self-development", "Dynamic 'Work hard, play hard' culture, modern pantry, and annual company trips"]
                     },
                     deadline: {
                         vn: "Đang tuyển liên tục",
@@ -538,28 +463,28 @@ export const UI_TEXT = {
                     }
                 }
               },
-              { 
-                title: "Marketing Specialist", 
-                dept: "CLAH HQ", 
-                location: "Remote / Hybrid", 
+              {
+                title: "Production & Quality Control Lead",
+                dept: "Design Your Rooms",
+                location: "San Jose, CA",
                 type: "Full-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Marketing+Specialist",
+                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Production+QC+Lead",
                 details: {
                     description: {
-                        vn: "Xây dựng chiến lược marketing cho toàn bộ hệ sinh thái CLAH. Quản lý social media và content marketing.",
-                        en: "Develop marketing strategies for the entire CLAH ecosystem. Manage social media and content marketing."
+                        vn: "Giám sát: Lãnh đạo và giám sát đội ngũ mộc từ xử lý file CNC đến lắp ráp sản phẩm hoàn thiện, đảm bảo độ chính xác và tuân thủ tiêu chuẩn kỹ thuật của CLAH. Kiểm soát Chất lượng (QC): Kiểm tra vật liệu và phụ kiện trước khi lắp ráp. Thực hiện nghiệm thu sản phẩm cuối cùng và giám sát quy trình đóng gói/vận chuyển để đảm bảo chất lượng. Quản lý: Theo dõi tiến độ sản xuất, báo cáo tiến độ và đề xuất giải pháp ngay lập tức cho mọi vấn đề phát sinh.",
+                        en: "Supervision: Lead and supervise the carpentry team from CNC file processing to final product assembly, ensuring accuracy and compliance with CLAH's technical standards. Quality Control (QC): Inspect materials and hardware before assembly. Conduct final product acceptance and oversee the packaging/shipping process to ensure quality. Management: Monitor production schedules, report progress, and propose immediate solutions for any arising issues."
                     },
                     requirements: {
-                        vn: ["Kinh nghiệm Digital Marketing 2+ năm", "Kỹ năng viết content tốt", "Biết sử dụng công cụ thiết kế cơ bản"],
-                        en: ["2+ years in Digital Marketing", "Strong content writing skills", "Basic design tool knowledge"]
+                        vn: ["5+ năm kinh nghiệm trong sản xuất đồ nội thất (gỗ công nghiệp & gỗ tự nhiên)", "Kỹ năng Kỹ thuật: Thành thạo kiểm tra file CNC và có kinh nghiệm trong sản xuất/lắp ráp tủ", "Lãnh đạo: Có khả năng lãnh đạo, quản lý và động viên đội ngũ xưởng sản xuất", "Cẩn thận, có trách nhiệm và có kỹ năng giải quyết vấn đề tốt"],
+                        en: ["5+ years of experience in furniture production (industrial & natural wood)", "Technical Skills: Proficient in checking CNC files and experienced in cabinet manufacturing/assembly", "Leadership: Proven ability to lead, manage, and motivate the workshop team", "Meticulous, responsible, and possess strong problem-solving skills"]
                     },
                     benefits: {
-                         vn: ["Lương $50k - $75k/năm", "Làm việc linh hoạt", "Thưởng hiệu quả"],
-                         en: ["Salary $50k - $75k/year", "Flexible working", "Performance bonus"]
+                         vn: ["Lương cạnh tranh + Lương tháng 13 + Thưởng lợi nhuận cuối năm", "Trợ cấp Con: 1,000,000 VND/con", "Trợ cấp Học tập: 5% lương cho phát triển bản thân", "Văn hóa 'Work hard, play hard' năng động với đồng nghiệp cởi mở", "Quyền lợi: Bảo hiểm đầy đủ, pantry văn phòng hiện đại và du lịch công ty hàng năm"],
+                         en: ["Competitive salary + 13th-month salary + Year-end profit bonus", "Child Allowance: 1,000,000 VND/child", "Learning Allowance: 5% of salary for self-development", "Dynamic 'Work hard, play hard' environment with open-minded colleagues", "Perks: Full insurance, modern office pantry, and annual company trips"]
                     },
                     deadline: {
-                        vn: "20/06/2024",
-                        en: "June 20, 2024"
+                        vn: "Đang tuyển liên tục",
+                        en: "Ongoing Recruitment"
                     }
                 }
               }
