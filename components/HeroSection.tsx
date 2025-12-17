@@ -43,7 +43,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             <ArrowRight size={20} />
           </a>
           <button
-            onClick={() => { onNavigate?.('about'); window.scrollTo(0, 0); }}
+            onClick={() => onNavigate?.('about')}
             className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-semibold backdrop-blur-sm transition-all"
           >
             {text.aboutBtn[language]}

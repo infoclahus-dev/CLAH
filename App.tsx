@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ServiceCard from './components/ServiceCard';
@@ -20,30 +20,93 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
 import { ViewState } from './types';
 
+const viewToSlugMap: Record<ViewState, string> = {
+  home: '/',
+  about: '/about',
+  contact: '/contact',
+  services: '/services',
+  careers: '/careers',
+  resources: '/resources',
+  locations: '/locations',
+  admin: '/admin',
+  blogPost: '/blog'
+};
+
+const slugToViewMap: Record<string, ViewState> = {
+  '/': 'home',
+  '/about': 'about',
+  '/contact': 'contact',
+  '/services': 'services',
+  '/careers': 'careers',
+  '/resources': 'resources',
+  '/locations': 'locations',
+  '/admin': 'admin',
+  '/blog': 'blogPost'
+};
+
 const App: React.FC = () => {
   const { language } = useLanguage();
   const [currentView, setCurrentView] = useState<ViewState>('home');
   const [currentBlogSlug, setCurrentBlogSlug] = useState<string | null>(null);
   const t = UI_TEXT;
 
-  const handleViewBlogPost = useCallback((slug: string) => {
-    setCurrentBlogSlug(slug);
-    setCurrentView('blogPost');
+  const parseUrlToView = useCallback(() => {
+    const path = window.location.pathname;
+
+    if (path.startsWith('/blog/')) {
+      const slug = path.replace('/blog/', '');
+      setCurrentBlogSlug(slug);
+      return 'blogPost' as ViewState;
+    }
+
+    return slugToViewMap[path] || 'home';
   }, []);
+
+  useEffect(() => {
+    const initialView = parseUrlToView();
+    setCurrentView(initialView);
+  }, [parseUrlToView]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const view = parseUrlToView();
+      setCurrentView(view);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [parseUrlToView]);
+
+  const navigate = useCallback((view: ViewState, blogSlug?: string) => {
+    setCurrentView(view);
+
+    let url = viewToSlugMap[view];
+    if (view === 'blogPost' && blogSlug) {
+      url = `/blog/${blogSlug}`;
+      setCurrentBlogSlug(blogSlug);
+    }
+
+    window.history.pushState({}, '', url);
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleViewBlogPost = useCallback((slug: string) => {
+    navigate('blogPost', slug);
+  }, [navigate]);
 
   const handleBackToResources = useCallback(() => {
     setCurrentBlogSlug(null);
-    setCurrentView('resources');
-  }, []);
+    navigate('resources');
+  }, [navigate]);
 
   return (
     <div className="min-h-screen font-sans bg-slate-50 text-slate-800 selection:bg-blue-100 selection:text-blue-900">
-      <Navbar onNavigate={setCurrentView} currentView={currentView} />
+      <Navbar onNavigate={navigate} currentView={currentView} />
       
       <main>
         {currentView === 'home' && (
           <>
-            <HeroSection onNavigate={setCurrentView} />
+            <HeroSection onNavigate={navigate} />
 
              {/* Ecosystem Model Graphic */}
              <EcosystemModel />
@@ -74,8 +137,8 @@ const App: React.FC = () => {
                  <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
                     {t.about.desc1[language]}
                  </p>
-                 <button 
-                    onClick={() => { setCurrentView('about'); window.scrollTo(0, 0); }}
+                 <button
+                    onClick={() => navigate('about')}
                     className="px-8 py-3 rounded-full border border-slate-200 text-slate-900 font-semibold hover:bg-slate-50 transition-colors"
                  >
                     {t.hero.aboutBtn[language]}

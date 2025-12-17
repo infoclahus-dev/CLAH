@@ -9,7 +9,20 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [react()],
+      plugins: [
+        react(),
+        {
+          name: 'spa-fallback',
+          configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+              if (req.url && !req.url.includes('.') && !req.url.startsWith('/api')) {
+                req.url = '/index.html';
+              }
+              next();
+            });
+          },
+        },
+      ],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
