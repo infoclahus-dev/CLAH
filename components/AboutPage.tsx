@@ -133,8 +133,7 @@ const AboutPage: React.FC = () => {
                           {language === 'vn' ? 'Lịch sử phát triển' : 'Timeline'}
                        </span>
                       <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
-                        <span className="text-slate-900">Our </span>
-                        <span className="text-[#a1826b]">{language === 'vn' ? 'Cột Mốc' : 'Milestones'}</span>
+                        <span className="text-[#a1826b]">{t.milestones.title[language]}</span>
                       </h2>
                       <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                         {language === 'vn' 
