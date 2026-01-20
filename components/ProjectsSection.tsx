@@ -1,15 +1,15 @@
-// Component to display CLAH projects with links to their landing pages
+// Component to display CLAH featured projects (separate from ecosystem entities)
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { CLAH_ENTITIES } from '../constants';
+import { FEATURED_PROJECTS } from '../constants';
 import { UI_TEXT } from '../constants';
 
 const ProjectsSection: React.FC = () => {
   const { language } = useLanguage();
   const t = UI_TEXT;
 
-  const projects = CLAH_ENTITIES;
+  const projects = FEATURED_PROJECTS;
 
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
@@ -48,9 +48,17 @@ const ProjectsSection: React.FC = () => {
 
               {/* Project Info */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-6 text-slate-900 group-hover:text-orange-600 transition-colors flex items-center justify-center text-center">
+                <div className="mb-3">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold text-orange-600 bg-orange-50 rounded-full">
+                    {project.category[language]}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-orange-600 transition-colors text-center">
                   {project.name}
                 </h3>
+                <p className="text-sm text-slate-600 mb-6 text-center flex-1">
+                  {project.description[language]}
+                </p>
 
                 {/* CTA Button */}
                 <a
