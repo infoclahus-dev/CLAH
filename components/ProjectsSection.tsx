@@ -48,17 +48,9 @@ const ProjectsSection: React.FC = () => {
 
               {/* Project Info */}
               <div className="p-6 flex flex-col flex-1">
-                <div className="mb-3">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold text-orange-600 bg-orange-50 rounded-full">
-                    {project.category[language]}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-orange-600 transition-colors text-center">
+                <h3 className="text-xl font-bold mb-6 text-slate-900 group-hover:text-orange-600 transition-colors text-center">
                   {project.name}
                 </h3>
-                <p className="text-sm text-slate-600 mb-6 text-center flex-1">
-                  {project.description[language]}
-                </p>
 
                 {/* CTA Button */}
                 <a
