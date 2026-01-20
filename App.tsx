@@ -125,6 +125,9 @@ const App: React.FC = () => {
               <DetailedServiceList />
             </section>
 
+            {/* Projects Section */}
+            <ProjectsSection />
+
             {/* Home About Teaser - Simplified version for landing */}
             <section id="about-teaser" className="py-16 bg-white">
               <div className="container mx-auto px-4 text-center">
