@@ -3,8 +3,8 @@ import { IMAGES } from './config/images';
 
 export const CLAH_ENTITIES: ServiceEntity[] = [
   {
-    id: 'hawthorne',
-    name: 'HAWTHORNE',
+    id: 'custom-home',
+    name: 'Custom Home',
     description: {
       vn: 'Xây dựng nhà ở cao cấp trọn gói từ móng đến mái',
       en: 'Turnkey custom home building from foundation to roof'
@@ -23,11 +23,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Giấy phép xây dựng', 'Thi công trọn gói', 'Bảo hành dài hạn'],
       en: ['Building Permits', 'Turnkey Construction', 'Long-term Warranty']
     },
-    websiteUrl: 'https://hawthorne-duplicated-xtf7.bolt.host/'
+    websiteUrl: 'https://www.customhome.us/'
   },
   {
-    id: '1800',
-    name: '1800',
+    id: 'nca-designs',
+    name: 'NCA Designs',
     description: {
       vn: 'Thiết kế nội thất tối ưu không gian sống hiện đại',
       en: 'Interior design optimizing modern living spaces'
@@ -46,11 +46,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Thiết kế 3D', 'Tư vấn phong cách', 'Giám sát thi công'],
       en: ['3D Design', 'Style Consultation', 'Construction Supervision']
     },
-    websiteUrl: 'https://1800-528o.bolt.host/'
+    websiteUrl: 'https://www.ncadesigns.com/'
   },
   {
-    id: 'antonio',
-    name: 'ANTONIO',
+    id: 'design-your-rooms',
+    name: 'Design Your Rooms',
     description: {
       vn: 'Nội thất may đo cao cấp với vật liệu độc bản',
       en: 'Premium bespoke furniture with unique materials'
@@ -69,11 +69,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Sofa & Bàn ghế', 'Tủ bếp & Wardrobe', 'Decor độc bản'],
       en: ['Sofas & Tables', 'Kitchen & Wardrobe', 'Unique Decor']
     },
-    websiteUrl: 'https://antonio-kzps.bolt.host/'
+    websiteUrl: 'https://designyourrooms.com/'
   },
   {
-    id: 'bellevue',
-    name: 'BELLEVUE',
+    id: 'ncm-cafe',
+    name: 'NCM Cafe',
     description: {
       vn: 'Không gian kết nối cho cộng đồng Startup & Bất động sản',
       en: 'Networking space for Startup & Real Estate community'
@@ -92,7 +92,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Co-working Space', 'Networking Events', 'Specialty Coffee'],
       en: ['Co-working Space', 'Networking Events', 'Specialty Coffee']
     },
-    websiteUrl: 'https://bellevue-cw4b.bolt.host/'
+    websiteUrl: 'https://www.ncmcafe.com/'
   }
 ];
 
