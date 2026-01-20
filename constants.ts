@@ -14,7 +14,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Specializing in high-end custom home building services with a turnkey process from permitting to key handover.'
     },
     iconName: 'Hammer',
-    imageUrl: IMAGES.customHome.main,
+    imageUrl: '/projectThumb/hawthorne.jpeg',
     ctaText: {
       vn: 'Tư vấn Xây dựng',
       en: 'Construction Consult'
@@ -37,7 +37,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'NCA Designs provides interior design solutions that optimize living space, combining modern aesthetics with functionality.'
     },
     iconName: 'PenTool',
-    imageUrl: IMAGES.ncaDesigns.main,
+    imageUrl: '/projectThumb/1800.jpg',
     ctaText: {
       vn: 'Xem Portfolio',
       en: 'View Portfolio'
@@ -60,7 +60,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Bespoke furniture services (Custom Furniture) helping you freely create your own unique space with premium materials.'
     },
     iconName: 'Armchair',
-    imageUrl: IMAGES.designYourRooms.main,
+    imageUrl: '/projectThumb/antonio.jpg',
     ctaText: {
       vn: 'Đặt hàng Custom',
       en: 'Order Custom'
@@ -83,7 +83,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       en: 'Networking Hub for the Real Estate and Tech Startup community in Silicon Valley.'
     },
     iconName: 'Coffee',
-    imageUrl: IMAGES.ncmCafe.main,
+    imageUrl: '/projectThumb/bellevue.jpg',
     ctaText: {
       vn: 'Đặt bàn / Sự kiện',
       en: 'Book Table / Events'
