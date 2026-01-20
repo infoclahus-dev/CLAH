@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ServiceCard from './components/ServiceCard';
 import DetailedServiceList from './components/DetailedServiceList';
+import ProjectsSection from './components/ProjectsSection';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import ServicePage from './components/ServicePage';
@@ -123,6 +124,9 @@ const App: React.FC = () => {
             <section id="detailed-services">
               <DetailedServiceList />
             </section>
+
+            {/* Projects Section */}
+            <ProjectsSection />
 
             {/* Home About Teaser - Simplified version for landing */}
             <section id="about-teaser" className="py-16 bg-white">
