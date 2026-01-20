@@ -3,11 +3,11 @@ import { IMAGES } from './config/images';
 
 export const CLAH_ENTITIES: ServiceEntity[] = [
   {
-    id: 'custom-home',
-    name: 'Custom Home',
+    id: 'hawthorne',
+    name: 'HAWTHORNE',
     description: {
-      vn: 'Xây dựng tổ ấm trong mơ của bạn tại San Jose.',
-      en: 'Build your dream home in San Jose.'
+      vn: '',
+      en: ''
     },
     longDescription: {
       vn: 'Chuyên cung cấp dịch vụ xây dựng nhà ở cao cấp (Custom Home Building) với quy trình trọn gói từ xin giấy phép đến hoàn thiện chìa khóa trao tay.',
@@ -26,11 +26,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     websiteUrl: 'https://www.customhome.us/'
   },
   {
-    id: 'nca-designs',
-    name: 'NCA Designs',
+    id: '1800',
+    name: '1800',
     description: {
-      vn: 'Thiết kế nội thất tinh tế và hiện đại.',
-      en: 'Sophisticated and modern interior design.'
+      vn: '',
+      en: ''
     },
     longDescription: {
       vn: 'NCA Designs mang đến giải pháp thiết kế nội thất tối ưu hóa không gian sống, kết hợp giữa thẩm mỹ hiện đại và công năng sử dụng.',
@@ -49,11 +49,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     websiteUrl: 'https://www.ncadesigns.com/'
   },
   {
-    id: 'design-your-rooms',
-    name: 'Design Your Rooms',
+    id: 'antonio',
+    name: 'ANTONIO',
     description: {
-      vn: 'Nội thất Custom & Decor theo yêu cầu.',
-      en: 'Custom Furniture & Decor on demand.'
+      vn: '',
+      en: ''
     },
     longDescription: {
       vn: 'Dịch vụ cung cấp nội thất may đo (Custom Furniture) độc bản, giúp bạn tự do sáng tạo không gian riêng của mình với các vật liệu cao cấp.',
@@ -72,11 +72,11 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     websiteUrl: 'https://designyourrooms.com/'
   },
   {
-    id: 'ncm-cafe',
-    name: 'NCM Cafe',
+    id: 'bellevue',
+    name: 'BELLEVUE',
     description: {
-      vn: 'Real Estate & Startups Hub.',
-      en: 'Real Estate & Startups Hub.'
+      vn: '',
+      en: ''
     },
     longDescription: {
       vn: 'Không gian cà phê kết nối (Networking Hub) dành cho cộng đồng Bất động sản và Startup công nghệ tại thung lũng Silicon.',

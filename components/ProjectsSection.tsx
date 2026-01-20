@@ -13,11 +13,11 @@ const ProjectsSection: React.FC = () => {
   const projects = [
     ...CLAH_ENTITIES,
     {
-      id: 'clah-ecosystem',
-      name: 'CLAH Ecosystem',
+      id: 'signature-inn-hotel',
+      name: 'SIGNATURE INN HOTEL',
       description: {
-        vn: 'Hệ sinh thái toàn diện cho cuộc sống và làm việc.',
-        en: 'Comprehensive ecosystem for living and working.'
+        vn: '',
+        en: ''
       },
       imageUrl: 'https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg',
       websiteUrl: 'https://www.clah.us/'
@@ -61,19 +61,16 @@ const ProjectsSection: React.FC = () => {
 
               {/* Project Info */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-2 text-slate-900 group-hover:text-orange-600 transition-colors min-h-[3.5rem] flex items-center">
+                <h3 className="text-lg font-bold mb-6 text-slate-900 group-hover:text-orange-600 transition-colors flex items-center justify-center text-center">
                   {project.name}
                 </h3>
-                <p className="text-slate-600 text-sm mb-6 line-clamp-2 flex-1">
-                  {project.description[language]}
-                </p>
 
                 {/* CTA Button */}
                 <a
                   href={project.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 group-hover:gap-3 text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 group-hover:gap-3 text-sm mt-auto"
                 >
                   <span>{language === 'vn' ? 'Xem Dự Án' : 'View Project'}</span>
                   <ArrowRight size={16} />
