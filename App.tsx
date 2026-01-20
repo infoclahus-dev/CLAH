@@ -119,11 +119,14 @@ const App: React.FC = () => {
                 ))}
               </div>
             </section>
-
+            
             {/* Detailed Services List (New Section) */}
             <section id="detailed-services">
               <DetailedServiceList />
             </section>
+
+            {/* Projects Section */}
+            <ProjectsSection />
 
             {/* Home About Teaser - Simplified version for landing */}
             <section id="about-teaser" className="py-16 bg-white">
