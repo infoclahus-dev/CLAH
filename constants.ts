@@ -6,8 +6,8 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     id: 'hawthorne',
     name: 'HAWTHORNE',
     description: {
-      vn: '',
-      en: ''
+      vn: 'Xây dựng nhà ở cao cấp trọn gói từ móng đến mái',
+      en: 'Turnkey custom home building from foundation to roof'
     },
     longDescription: {
       vn: 'Chuyên cung cấp dịch vụ xây dựng nhà ở cao cấp (Custom Home Building) với quy trình trọn gói từ xin giấy phép đến hoàn thiện chìa khóa trao tay.',
@@ -29,8 +29,8 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     id: '1800',
     name: '1800',
     description: {
-      vn: '',
-      en: ''
+      vn: 'Thiết kế nội thất tối ưu không gian sống hiện đại',
+      en: 'Interior design optimizing modern living spaces'
     },
     longDescription: {
       vn: 'NCA Designs mang đến giải pháp thiết kế nội thất tối ưu hóa không gian sống, kết hợp giữa thẩm mỹ hiện đại và công năng sử dụng.',
@@ -52,8 +52,8 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     id: 'antonio',
     name: 'ANTONIO',
     description: {
-      vn: '',
-      en: ''
+      vn: 'Nội thất may đo cao cấp với vật liệu độc bản',
+      en: 'Premium bespoke furniture with unique materials'
     },
     longDescription: {
       vn: 'Dịch vụ cung cấp nội thất may đo (Custom Furniture) độc bản, giúp bạn tự do sáng tạo không gian riêng của mình với các vật liệu cao cấp.',
@@ -75,8 +75,8 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     id: 'bellevue',
     name: 'BELLEVUE',
     description: {
-      vn: '',
-      en: ''
+      vn: 'Không gian kết nối cho cộng đồng Startup & Bất động sản',
+      en: 'Networking space for Startup & Real Estate community'
     },
     longDescription: {
       vn: 'Không gian cà phê kết nối (Networking Hub) dành cho cộng đồng Bất động sản và Startup công nghệ tại thung lũng Silicon.',
