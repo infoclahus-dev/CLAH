@@ -47,10 +47,10 @@ const ProjectsSection: React.FC = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 flex flex-col h-full"
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden bg-slate-100">
+              <div className="relative h-48 overflow-hidden bg-slate-100 flex-shrink-0">
                 <img
                   src={project.imageUrl}
                   alt={project.name}
@@ -60,11 +60,11 @@ const ProjectsSection: React.FC = () => {
               </div>
 
               {/* Project Info */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-orange-600 transition-colors">
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold mb-2 text-slate-900 group-hover:text-orange-600 transition-colors min-h-[3.5rem] flex items-center">
                   {project.name}
                 </h3>
-                <p className="text-slate-600 text-sm mb-6 line-clamp-2">
+                <p className="text-slate-600 text-sm mb-6 line-clamp-2 flex-1">
                   {project.description[language]}
                 </p>
 
@@ -73,10 +73,10 @@ const ProjectsSection: React.FC = () => {
                   href={project.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 group-hover:gap-3"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 group-hover:gap-3 text-sm"
                 >
                   <span>{language === 'vn' ? 'Xem Dự Án' : 'View Project'}</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </a>
               </div>
             </div>
