@@ -23,7 +23,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Giấy phép xây dựng', 'Thi công trọn gói', 'Bảo hành dài hạn'],
       en: ['Building Permits', 'Turnkey Construction', 'Long-term Warranty']
     },
-    websiteUrl: 'https://www.customhome.us/'
+    websiteUrl: 'https://hawthorne-duplicated-xtf7.bolt.host/'
   },
   {
     id: '1800',
@@ -46,7 +46,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Thiết kế 3D', 'Tư vấn phong cách', 'Giám sát thi công'],
       en: ['3D Design', 'Style Consultation', 'Construction Supervision']
     },
-    websiteUrl: 'https://www.ncadesigns.com/'
+    websiteUrl: 'https://1800-528o.bolt.host/'
   },
   {
     id: 'antonio',
@@ -69,7 +69,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Sofa & Bàn ghế', 'Tủ bếp & Wardrobe', 'Decor độc bản'],
       en: ['Sofas & Tables', 'Kitchen & Wardrobe', 'Unique Decor']
     },
-    websiteUrl: 'https://designyourrooms.com/'
+    websiteUrl: 'https://antonio-kzps.bolt.host/'
   },
   {
     id: 'bellevue',
@@ -92,7 +92,7 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
       vn: ['Co-working Space', 'Networking Events', 'Specialty Coffee'],
       en: ['Co-working Space', 'Networking Events', 'Specialty Coffee']
     },
-    websiteUrl: 'https://www.ncmcafe.com/'
+    websiteUrl: 'https://bellevue-cw4b.bolt.host/'
   }
 ];
 
