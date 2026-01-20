@@ -111,15 +111,15 @@ const App: React.FC = () => {
              {/* Ecosystem Model Graphic */}
              <EcosystemModel />
 
-            {/* Services Grid (The "Gateway") */}
-            <section id="services" className="py-16 container mx-auto px-4">
+            {/* Services Grid (The "Gateway") - Hidden */}
+            {/* <section id="services" className="py-16 container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {CLAH_ENTITIES.map((entity) => (
                   <ServiceCard key={entity.id} entity={entity} />
                 ))}
               </div>
-            </section>
-            
+            </section> */}
+
             {/* Detailed Services List (New Section) */}
             <section id="detailed-services">
               <DetailedServiceList />
