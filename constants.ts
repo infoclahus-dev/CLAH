@@ -221,47 +221,47 @@ export const CLAH_DETAILED_SERVICES: CompanyServiceGroup[] = [
 
 export const FEATURED_PROJECTS = [
   {
-    id: 'custom-home-project',
-    name: 'Custom Home',
+    id: 'hawthorne',
+    name: 'HAWTHORNE',
     description: {
       vn: 'Dự án xây dựng nhà ở cao cấp tại San Jose',
       en: 'Premium custom home construction project in San Jose'
     },
-    imageUrl: '/customhome.jpg',
-    websiteUrl: 'https://www.customhome.us/',
+    imageUrl: '/projectThumb/hawthorne.jpeg',
+    websiteUrl: 'https://hawthorne-duplicated-xtf7.bolt.host/',
     category: { vn: 'Xây Dựng', en: 'Construction' }
   },
   {
-    id: 'nca-designs-project',
-    name: 'NCA Designs',
+    id: '1800',
+    name: '1800',
     description: {
       vn: 'Dự án thiết kế nội thất hiện đại và sang trọng',
       en: 'Modern and luxurious interior design project'
     },
-    imageUrl: '/ncadesigns.jpg',
-    websiteUrl: 'https://www.ncadesigns.com/',
+    imageUrl: '/projectThumb/1800.jpg',
+    websiteUrl: 'https://1800-528o.bolt.host/',
     category: { vn: 'Thiết Kế', en: 'Design' }
   },
   {
-    id: 'design-your-rooms-project',
-    name: 'Design Your Rooms',
+    id: 'antonio',
+    name: 'ANTONIO',
     description: {
       vn: 'Dự án nội thất custom độc đáo và cá nhân hóa',
       en: 'Unique and personalized custom furniture project'
     },
-    imageUrl: '/designyourroom.jpg',
-    websiteUrl: 'https://designyourrooms.com/',
+    imageUrl: '/projectThumb/antonio.jpg',
+    websiteUrl: 'https://antonio-kzps.bolt.host/',
     category: { vn: 'Nội Thất', en: 'Furniture' }
   },
   {
-    id: 'ncm-cafe-project',
-    name: 'NCM Cafe',
+    id: 'bellevue',
+    name: 'BELLEVUE',
     description: {
       vn: 'Không gian café kết nối cộng đồng startup',
       en: 'Cafe space connecting startup community'
     },
-    imageUrl: '/ncmcafe.jpeg',
-    websiteUrl: 'https://www.ncmcafe.com/',
+    imageUrl: '/projectThumb/bellevue.jpg',
+    websiteUrl: 'https://bellevue-cw4b.bolt.host/',
     category: { vn: 'F&B', en: 'F&B' }
   }
 ];
