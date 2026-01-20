@@ -9,20 +9,7 @@ const ProjectsSection: React.FC = () => {
   const { language } = useLanguage();
   const t = UI_TEXT;
 
-  // Add CLAH main website as the 5th project
-  const projects = [
-    ...CLAH_ENTITIES,
-    {
-      id: 'signature-inn-hotel',
-      name: 'SIGNATURE INN HOTEL',
-      description: {
-        vn: '',
-        en: ''
-      },
-      imageUrl: 'https://i.postimg.cc/BZhtKbSG/1704446939_quan_binh_thanh_toa_nha_tnl_cho_thue_van_phong_hcm_jpg.jpg',
-      websiteUrl: 'https://www.clah.us/'
-    }
-  ];
+  const projects = CLAH_ENTITIES;
 
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
