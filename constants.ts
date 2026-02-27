@@ -486,31 +486,6 @@ export const UI_TEXT = {
           },
           list: [
               {
-                title: "Admin & Logistics Staff",
-                dept: "Vietnam Office",
-                location: "Ho Chi Minh City, Vietnam",
-                type: "Full-time",
-                applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe_example_form/viewform?usp=pp_url&entry.123=Admin+Logistics+Staff",
-                details: {
-                    description: {
-                        vn: "Admin: Soạn thảo và quản lý hợp đồng, tài liệu pháp lý và hồ sơ công ty. Hỗ trợ Giám đốc lập lịch họp và chuẩn bị báo cáo nội bộ. Logistics: Xử lý đặt chỗ tàu/container. Quản lý tài liệu xuất nhập khẩu (Invoice, Packing List, Bill of Lading) và phối hợp với đơn vị chuyển tiếp để đảm bảo giao hàng đúng hạn.",
-                        en: "Admin: Draft and manage contracts, legal documents, and company records. Assist the Director with scheduling meetings and preparing internal reports. Logistics: Handle bookings for vessels/containers. Manage export-import documentation (Invoice, Packing List, Bill of Lading) and coordinate with forwarders to ensure on-time delivery."
-                    },
-                    requirements: {
-                        vn: ["Không yêu cầu kinh nghiệm (Được đào tạo đầy đủ)", "Tốt nghiệp Cao đẳng trở lên (Ưu tiên: Quản trị Kinh doanh, Logistics, Quản trị Văn phòng)", "Thành thạo Microsoft Office (Word, Excel). Kỹ năng giao tiếp và tổ chức tốt", "Cẩn thận, chủ động và mong muốn học hỏi/phát triển sự nghiệp dài hạn"],
-                        en: ["No prior experience required (Full training provided)", "College degree or higher (Preferred: Business Admin, Logistics, Office Admin)", "Proficient in Microsoft Office (Word, Excel). Strong communication and organizational skills", "Meticulous, proactive, and eager to learn/develop a long-term career"]
-                    },
-                    benefits: {
-                         vn: ["Lương cạnh tranh + Lương tháng 13 + Thưởng lợi nhuận cuối năm", "Trợ cấp Con: 1,000,000 VND/con", "Trợ cấp Học tập: 5% lương cho phát triển bản thân", "Văn hóa năng động 'Work hard, play hard', pantry hiện đại và du lịch công ty hàng năm"],
-                         en: ["Competitive salary + 13th-month salary + Year-end profit bonus", "Child Allowance: 1,000,000 VND/child", "Learning Allowance: 5% of salary for self-development", "Dynamic 'Work hard, play hard' culture, modern pantry, and annual company trips"]
-                    },
-                    deadline: {
-                        vn: "Đang tuyển liên tục",
-                        en: "Ongoing Recruitment"
-                    }
-                }
-              },
-              {
                 title: "Production & Quality Control Lead",
                 dept: "Vietnam Office",
                 location: "Ho Chi Minh City, Vietnam",
