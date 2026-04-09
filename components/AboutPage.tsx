@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT } from '../constants';
-import { Award, Users, Heart, Lightbulb, Briefcase, Shield, LucideIcon, MapPin } from 'lucide-react';
+import { Award, Users, Heart, Lightbulb, Briefcase, Shield, Video as LucideIcon, MapPin } from 'lucide-react';
 import BlueprintCanvas from './BlueprintCanvas';
 
 const AboutPage: React.FC = () => {
@@ -63,9 +63,9 @@ const AboutPage: React.FC = () => {
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square group">
                             <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all z-10" />
                             <img
-                                src="https://i.postimg.cc/sD3Gp5zC/logo-signature-(2).png"
+                                src="/ecosystem.png"
                                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                alt="CLAH Logo"
+                                alt="CLAH Ecosystem"
                             />
                         </div>
                     </div>
