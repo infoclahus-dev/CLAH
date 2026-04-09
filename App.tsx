@@ -163,38 +163,30 @@ const App: React.FC = () => {
                     </p>
                   </div>
                   
-                  {/* Right Column: 4 Vertical Pills */}
-                  <div className="w-full lg:w-2/3 h-[400px] md:h-[500px] grid grid-cols-4 gap-4">
+                  {/* Right Column: 3 Vertical Pills */}
+                  <div className="w-full lg:w-2/3 h-[400px] md:h-[500px] grid grid-cols-3 gap-4">
                      {/* Pill 1 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-0 h-[85%] bg-orange-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
-                        <img 
-                            src="https://i.postimg.cc/bwfdN8B1/custom_Home5.jpg" 
-                            alt="Construction" 
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        <img
+                            src="https://i.postimg.cc/bwfdN8B1/custom_Home5.jpg"
+                            alt="Construction"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                      </div>
                      {/* Pill 2 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-[20%] h-[80%] bg-blue-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
-                        <img 
-                            src="https://i.postimg.cc/52WjN1RS/design_Your_Room1.jpg" 
-                            alt="Tech" 
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        <img
+                            src="https://i.postimg.cc/52WjN1RS/design_Your_Room1.jpg"
+                            alt="Interior"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                      </div>
                      {/* Pill 3 */}
                      <div className="relative rounded-[100px] overflow-hidden mt-[5%] h-[95%] bg-emerald-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
-                        <img 
-                            src="https://i.postimg.cc/2SN38mKw/design_Your_Room2.jpg" 
-                            alt="Community" 
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-                        />
-                     </div>
-                     {/* Pill 4 */}
-                     <div className="relative rounded-[100px] overflow-hidden mt-[15%] h-[85%] bg-purple-100 group shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
-                         <img 
-                            src="https://i.postimg.cc/d0q1r6Fg/NCM_4.jpg" 
-                            alt="Design" 
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        <img
+                            src="https://i.postimg.cc/2SN38mKw/design_Your_Room2.jpg"
+                            alt="Furniture"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                      </div>
                   </div>

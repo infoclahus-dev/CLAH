@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UI_TEXT, CLAH_ENTITIES } from '../constants';
-import { Hammer, PenTool, Armchair, Coffee, ArrowRight } from 'lucide-react';
+import { Hammer, PenTool, Armchair, ArrowRight } from 'lucide-react';
 
 const EcosystemModel: React.FC = () => {
   const { language } = useLanguage();
@@ -136,14 +136,14 @@ const EcosystemModel: React.FC = () => {
                </div>
             </div>
 
-            {/* Right Column: LIFESTYLE & CONNECT (Software) */}
-            <div className="flex flex-col gap-6 md:gap-8 w-full max-w-md lg:max-w-sm relative z-10">
+            {/* Right Column: LIFESTYLE (Software) */}
+            <div className="flex flex-col gap-6 md:gap-8 w-full max-w-md lg:max-w-sm relative z-10 justify-center">
                <div className="text-center lg:text-left mb-2 md:mb-4">
-                  <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase bg-white/80 px-2 py-1 rounded backdrop-blur-sm">Lifestyle & Connect</span>
+                  <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase bg-white/80 px-2 py-1 rounded backdrop-blur-sm">Lifestyle</span>
                </div>
 
                {/* CARD 3: DESIGN YOUR ROOMS (Emerald) */}
-               <a 
+               <a
                   href={getUrl('design-your-rooms')}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -162,27 +162,6 @@ const EcosystemModel: React.FC = () => {
                      Custom Furniture
                   </p>
                </a>
-
-               {/* CARD 4: NCM CAFE (Orange) */}
-               <a 
-                  href={getUrl('ncm-cafe')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-orange-200 hover:-translate-y-1 relative overflow-hidden mt-0 lg:mt-8 cursor-pointer"
-               >
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600" />
-                  <div className="flex justify-between items-start mb-4">
-                     <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
-                        <Coffee size={20} className="md:w-6 md:h-6" />
-                     </div>
-                     <span className="text-xs font-bold text-slate-300 uppercase">04</span>
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">NCM Cafe</h3>
-                  <p className="text-sm text-slate-500 mb-3">Real Estate & Startup Hub</p>
-                  <p className="text-xs text-orange-600 font-semibold tracking-wide uppercase bg-orange-50 inline-block px-2 py-1 rounded">
-                     Community
-                  </p>
-               </a>
             </div>
 
         </div>
@@ -195,8 +174,6 @@ const EcosystemModel: React.FC = () => {
               <span>Interior</span>
               <ArrowRight size={14} className="md:w-4 md:h-4" />
               <span>Furniture</span>
-              <ArrowRight size={14} className="md:w-4 md:h-4" />
-              <span>Community</span>
            </div>
         </div>
       </div>

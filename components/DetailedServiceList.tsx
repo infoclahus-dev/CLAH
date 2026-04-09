@@ -3,19 +3,12 @@ import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { CLAH_DETAILED_SERVICES } from '../constants';
 import { IMAGES } from '../config/images';
-import {
-  Hammer, PaintBucket, Home, FileText,
-  Ruler, LayoutTemplate, Box, Palette,
-  Armchair, Utensils, Shirt, Gem,
-  MapPin, Laptop, Coffee, Users,
-  LucideIcon, ArrowRight
-} from 'lucide-react';
+import { Hammer, PaintBucket, Hop as Home, FileText, Ruler, LayoutTemplate, Box, Palette, Armchair, Utensils, Shirt, Gem, Video as LucideIcon, ArrowRight } from 'lucide-react';
 
 const SERVICE_IMAGES: Record<string, string[]> = {
   'custom-home': IMAGES.customHome.gallery,
   'nca-designs': IMAGES.ncaDesigns.gallery,
   'design-your-rooms': IMAGES.designYourRooms.gallery,
-  'ncm-cafe': IMAGES.ncmCafe.gallery
 };
 
 const DetailedServiceList: React.FC = () => {
@@ -24,8 +17,7 @@ const DetailedServiceList: React.FC = () => {
   const iconMap: Record<string, LucideIcon> = {
     'Hammer': Hammer, 'PaintBucket': PaintBucket, 'Home': Home, 'FileText': FileText,
     'Ruler': Ruler, 'LayoutTemplate': LayoutTemplate, 'Box': Box, 'Palette': Palette,
-    'Armchair': Armchair, 'Utensils': Utensils, 'Shirt': Shirt, 'Gem': Gem,
-    'MapPin': MapPin, 'Laptop': Laptop, 'Coffee': Coffee, 'Users': Users
+    'Armchair': Armchair, 'Utensils': Utensils, 'Shirt': Shirt, 'Gem': Gem
   };
 
   return (

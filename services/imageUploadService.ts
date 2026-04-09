@@ -63,7 +63,6 @@ export const IMAGE_MAPPINGS = {
   'customhomelogo.png': 'logos/customhome.png',
   'ncadesignslogo.png': 'logos/ncadesigns.png',
   'designyourrooms.png': 'logos/designyourrooms.png',
-  'ncmcafelogo.png': 'logos/ncmcafe.png',
   'customhome.jpg': 'services/customhome/main.jpg',
   'customhome1.jpg': 'services/customhome/1.jpg',
   'customhome2.jpg': 'services/customhome/2.jpg',
@@ -84,11 +83,4 @@ export const IMAGE_MAPPINGS = {
   'designyourroom3.jpg': 'services/designyourrooms/3.jpg',
   'designyourroom4.jpg': 'services/designyourrooms/4.jpg',
   'designyourroom5.jpg': 'services/designyourrooms/5.jpg',
-  'ncmcafe.jpeg': 'services/ncmcafe/main.jpeg',
-  'ncmcafe1.jpeg': 'services/ncmcafe/1.jpeg',
-  'ncmcafe2.jpeg': 'services/ncmcafe/2.jpeg',
-  'ncmcafe3.jpeg': 'services/ncmcafe/3.jpeg',
-  'ncmcafe4.jpeg': 'services/ncmcafe/4.jpeg',
-  'ncmcafe5.jpg': 'services/ncmcafe/5.jpg',
-  'ncm_4.jpg': 'services/ncmcafe/4-alt.jpg'
 };

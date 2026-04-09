@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, Check, X, AlertCircle } from 'lucide-react';
+import { Upload, Check, X, CircleAlert as AlertCircle } from 'lucide-react';
 import { uploadImage, IMAGE_MAPPINGS } from '../services/imageUploadService';
 
 interface ImageStatus {
@@ -73,7 +73,6 @@ const AdminImageUpload: React.FC = () => {
     else if (fileName.includes('customhome')) category = 'Custom Home';
     else if (fileName.includes('ncadesign')) category = 'NCA Designs';
     else if (fileName.includes('designyourroom')) category = 'Design Your Rooms';
-    else if (fileName.includes('ncmcafe') || fileName.includes('ncm_')) category = 'NCM Cafe';
 
     if (!acc[category]) acc[category] = [];
     acc[category].push({ fileName, ...status });

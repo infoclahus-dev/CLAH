@@ -8,7 +8,6 @@ export const IMAGES = {
     customHome: '/customhomelogo.png',
     ncaDesigns: '/ncadesignslogo.png',
     designYourRooms: '/designyourrooms.png',
-    ncmCafe: '/ncmcafelogo.png',
   },
 
   // Custom Home service images
@@ -48,15 +47,4 @@ export const IMAGES = {
     ]
   },
 
-  // NCM Cafe service images
-  ncmCafe: {
-    main: 'https://i.postimg.cc/vmQBfhMT/ncmcafe4.jpg',
-    gallery: [
-      '/ncmcafe1.jpeg',
-      '/ncmcafe2.jpeg',
-      '/ncmcafe3.jpeg',
-      '/ncmcafe4.jpeg',
-      '/ncmcafe5.jpg',
-    ]
-  }
 } as const;

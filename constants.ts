@@ -71,29 +71,6 @@ export const CLAH_ENTITIES: ServiceEntity[] = [
     },
     websiteUrl: 'https://designyourrooms.com/'
   },
-  {
-    id: 'ncm-cafe',
-    name: 'NCM Cafe',
-    description: {
-      vn: 'Không gian kết nối cho cộng đồng Startup & Bất động sản',
-      en: 'Networking space for Startup & Real Estate community'
-    },
-    longDescription: {
-      vn: 'Không gian cà phê kết nối (Networking Hub) dành cho cộng đồng Bất động sản và Startup công nghệ tại thung lũng Silicon.',
-      en: 'Networking Hub for the Real Estate and Tech Startup community in Silicon Valley.'
-    },
-    iconName: 'Coffee',
-    imageUrl: '/projectThumb/bellevue.jpg',
-    ctaText: {
-      vn: 'Đặt bàn / Sự kiện',
-      en: 'Book Table / Events'
-    },
-    features: {
-      vn: ['Co-working Space', 'Networking Events', 'Specialty Coffee'],
-      en: ['Co-working Space', 'Networking Events', 'Specialty Coffee']
-    },
-    websiteUrl: 'https://www.ncmcafe.com/'
-  }
 ];
 
 export const CLAH_DETAILED_SERVICES: CompanyServiceGroup[] = [
@@ -187,36 +164,6 @@ export const CLAH_DETAILED_SERVICES: CompanyServiceGroup[] = [
       }
     ]
   },
-  {
-    id: 'ncm-cafe',
-    name: 'NCM Cafe',
-    services: [
-      {
-        name: { vn: 'Thuê Địa Điểm', en: 'Venue Booking' },
-        description: { vn: 'Tổ chức workshop, sự kiện.', en: 'Host workshops and events.' },
-        link: 'https://www.ncmcafe.com/',
-        iconName: 'MapPin'
-      },
-      {
-        name: { vn: 'Co-working Space', en: 'Co-working Space' },
-        description: { vn: 'Chỗ ngồi làm việc linh hoạt.', en: 'Flexible working desks.' },
-        link: 'https://www.ncmcafe.com/',
-        iconName: 'Laptop'
-      },
-      {
-        name: { vn: 'Cà Phê & Đồ Uống', en: 'Coffee & Drinks' },
-        description: { vn: 'Thực đơn đồ uống đặc biệt.', en: 'Specialty drinks menu.' },
-        link: 'https://www.ncmcafe.com/',
-        iconName: 'Coffee'
-      },
-      {
-        name: { vn: 'Kết Nối Startup', en: 'Startup Networking' },
-        description: { vn: 'Gặp gỡ nhà đầu tư và founder.', en: 'Meet investors and founders.' },
-        link: 'https://www.ncmcafe.com/',
-        iconName: 'Users'
-      }
-    ]
-  }
 ];
 
 export const FEATURED_PROJECTS = [
@@ -348,15 +295,15 @@ export const UI_TEXT = {
       en: "CLAH is not just a company, but a closed-loop ecosystem serving high-quality living and working needs in San Jose."
     },
     desc2: {
-      vn: "Chúng tôi tin rằng ngôi nhà không chỉ để ở, mà là nơi nuôi dưỡng tâm hồn. Và quán cà phê không chỉ để uống, mà là nơi khởi nguồn cho những ý tưởng Startup vĩ đại tiếp theo của Thung lũng Silicon.",
-      en: "We believe that a home is not just for living, but for nurturing the soul. And a cafe is not just for drinking, but where the next great Silicon Valley startup ideas begin."
+      vn: "Chúng tôi tin rằng ngôi nhà không chỉ để ở, mà là nơi nuôi dưỡng tâm hồn. Từ xây dựng đến thiết kế và nội thất, CLAH đồng hành cùng bạn trong suốt hành trình tạo dựng không gian sống lý tưởng.",
+      en: "We believe that a home is not just for living, but for nurturing the soul. From construction to design and furniture, CLAH accompanies you throughout the journey of creating your ideal living space."
     },
     statHomes: { vn: "Custom Homes", en: "Custom Homes" },
     statEvents: { vn: "Sự kiện Startup", en: "Startup Events" },
     storyTitle: { vn: "Hành Trình Kiến Tạo", en: "Our Journey" },
     storyContent: {
-      vn: "Được thành lập tại trung tâm Thung lũng Silicon, CLAH ra đời từ sự trăn trở về việc thiếu sự kết nối giữa việc xây dựng phần cứng (nhà ở) và phần mềm (lối sống). Chúng tôi bắt đầu với Custom Home, mở rộng sang thiết kế nội thất với NCA Designs, sản xuất nội thất độc bản với Design Your Rooms và cuối cùng là tạo ra không gian kết nối cộng đồng tại NCM Cafe.",
-      en: "Founded in the heart of Silicon Valley, CLAH was born from the realization of a disconnect between building the hardware (housing) and the software (lifestyle). We started with Custom Home, expanded into interior design with NCA Designs, bespoke furniture with Design Your Rooms, and finally created a community hub at NCM Cafe."
+      vn: "Được thành lập tại trung tâm Thung lũng Silicon, CLAH ra đời từ sự trăn trở về việc thiếu sự kết nối giữa việc xây dựng phần cứng (nhà ở) và phần mềm (lối sống). Chúng tôi bắt đầu với Custom Home, mở rộng sang thiết kế nội thất với NCA Designs và sản xuất nội thất độc bản với Design Your Rooms.",
+      en: "Founded in the heart of Silicon Valley, CLAH was born from the realization of a disconnect between building the hardware (housing) and the software (lifestyle). We started with Custom Home, expanded into interior design with NCA Designs, and bespoke furniture with Design Your Rooms."
     },
     values: {
         title: { vn: "Giá Trị Cốt Lõi", en: "Core Values" },
@@ -414,7 +361,6 @@ export const UI_TEXT = {
         {
           year: "2025",
           lines: [
-            { vn: "NCM Cafe", en: "NCM Cafe" },
             { vn: "NCA Designs", en: "NCA Designs" }
           ]
         }
@@ -429,7 +375,7 @@ export const UI_TEXT = {
       },
       intro: {
           title: { vn: "Tại sao chọn CLAH?", en: "Why CLAH?" },
-          content: { vn: "Tại CLAH, chúng tôi không chỉ xây dựng nhà, chúng tôi xây dựng sự nghiệp. Làm việc trong một hệ sinh thái đa dạng từ xây dựng, thiết kế đến công nghệ và F&B mang đến cho bạn cơ hội học hỏi và phát triển không giới hạn.", en: "At CLAH, we don't just build homes, we build careers. Working in a diverse ecosystem ranging from construction and design to technology and F&B gives you unlimited opportunities to learn and grow." }
+          content: { vn: "Tại CLAH, chúng tôi không chỉ xây dựng nhà, chúng tôi xây dựng sự nghiệp. Làm việc trong một hệ sinh thái đa dạng từ xây dựng, thiết kế đến nội thất mang đến cho bạn cơ hội học hỏi và phát triển không giới hạn.", en: "At CLAH, we don't just build homes, we build careers. Working in a diverse ecosystem ranging from construction and design to bespoke furniture gives you unlimited opportunities to learn and grow." }
       },
       benefits: {
           title: { vn: "Phúc lợi", en: "Benefits" },
@@ -626,7 +572,6 @@ Hệ sinh thái bao gồm:
 1. **Custom Home**: Công ty xây dựng nhà ở trọn gói.
 2. **NCA Designs**: Công ty thiết kế nội thất chuyên nghiệp.
 3. **Design your rooms**: Dịch vụ cung cấp đồ nội thất custom (may đo).
-4. **NCM Cafe**: Quán cà phê kết hợp không gian networking cho Real Estate & Startups.
 
 Phong cách trả lời: Chuyên nghiệp, thân thiện, súc tích và hướng khách hàng đến việc sử dụng dịch vụ.
 Nếu khách hàng hỏi bằng tiếng Việt, hãy trả lời bằng tiếng Việt. Nếu hỏi bằng tiếng Anh, hãy trả lời bằng tiếng Anh.
