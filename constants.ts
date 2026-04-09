@@ -241,7 +241,7 @@ export const LOCATIONS_DATA: RegionGroup[] = [
       {
         id: "headquarters",
         name: { vn: "Trụ sở chính", en: "Headquarters" },
-        address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
+        address: "1724 Junction Ave Ste B,\nSan Jose CA 95112, United States",
         phone: "+1 650-999-6797",
         email: "info@clah.us",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
@@ -390,7 +390,7 @@ export const UI_TEXT = {
         title: { vn: "Văn phòng của chúng tôi", en: "Our Offices" },
         hq: {
              name: { vn: "Trụ sở chính", en: "Headquarters" },
-             address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131"
+             address: "1724 Junction Ave Ste B,\nSan Jose CA 95112, United States"
         },
         vn: {
              name: { vn: "Văn phòng Việt Nam", en: "Vietnam Office" },
@@ -492,7 +492,7 @@ export const UI_TEXT = {
     visit: { vn: "Ghé thăm", en: "Visit Us" },
     call: { vn: "Gọi điện", en: "Call Us" },
     email: { vn: "Gửi Email", en: "Email Us" },
-    address: "2092 Concourse Drive, Ste 9,\nSan Jose, CA 95131, United States",
+    address: "1724 Junction Ave Ste B,\nSan Jose CA 95112, United States",
     emailAddr: "info@clah.us",
     phoneNo: "+1 650-999-6797",
     form: {
